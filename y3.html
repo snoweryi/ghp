@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>丁種職業安全衛生業務主管｜安全衛生管理實務｜考前筆記與題庫</title>
+<style>
+  :root{
+    --navy:#1a2b4c;
+    --blue:#2f5aa8;
+    --gold:#c99a3c;
+    --bg:#f6f4ee;
+    --card:#ffffff;
+    --line:#e2ddd0;
+    --green:#2f8f5b;
+    --red:#c0392b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    background:var(--bg);
+    color:#2a2a2a;
+    line-height:1.7;
+	font-size: 22px;
+  }
+  header{
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+    color:#fff;
+    padding:80px 20px 28px;
+    text-align:center;
+  }
+  header h1{margin:0 0 8px;font-size:1.6em;letter-spacing:1px;}
+  header p{margin:4px 0;opacity:.9;font-size: 22px;}
+  .badge{
+    display:inline-block;
+    background:var(--gold);
+    color:#2a2a2a;
+    padding:4px 14px;
+    border-radius:20px;
+    font-size: 22px;
+    margin-top:10px;
+    font-weight:600;
+  }
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:#fff;
+    border-bottom:2px solid var(--line);
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    padding:10px;
+    flex-wrap:wrap;
+  }
+  nav a{
+    color:var(--navy);
+    text-decoration:none;
+    font-size: 22px;
+    padding:8px 14px;
+    border-radius:6px;
+    font-weight:600;
+    transition:.2s;
+  }
+  nav a:hover{background:var(--bg);color:var(--blue);}
+  main{max-width:1900px;margin:0 auto;padding:30px 18px 80px;}
+  section{margin-bottom:46px;}
+  h2{
+    color:var(--navy);
+    border-left:6px solid var(--gold);
+    padding-left:12px;
+    font-size:1.6em;
+    margin-bottom:18px;
+  }
+  h3{color:var(--blue);font-size:1.2em;margin:22px 0 8px;}
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px 22px;
+    margin-bottom:16px;
+    box-shadow:0 2px 6px rgba(0,0,0,.03);
+  }
+  .law{
+    background:#fdf8ec;
+    border:1px solid #ecd9a6;
+    border-left:5px solid var(--gold);
+    border-radius:6px;
+    padding:12px 16px;
+    margin:10px 0;
+    font-size: 22px;
+  }
+  .law b{color:var(--navy);}
+  ul{margin:6px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size: 22px;}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:center;}
+  th{background:var(--navy);color:#fff;}
+  tr:nth-child(even){background:#faf9f5;}
+  .tag{
+    display:inline-block;background:var(--blue);color:#fff;
+    font-size: 22px;padding:2px 10px;border-radius:12px;margin-bottom:8px;
+  }
+  .key-num{
+    background:var(--navy);color:#fff;border-radius:50%;
+    width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;
+    font-size: 22px;margin-right:8px;flex-shrink:0;
+  }
+  .kv-row{display:flex;align-items:flex-start;margin:6px 0;}
+
+  /* Quiz styles */
+  .quiz-toolbar{
+    display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;
+  }
+  .btn{
+    background:var(--blue);color:#fff;border:none;padding:10px 18px;
+    border-radius:6px;font-size: 22px;cursor:pointer;font-weight:600;
+  }
+  .btn.secondary{background:#fff;color:var(--blue);border:1px solid var(--blue);}
+  .btn:hover{opacity:.85;}
+  .q{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:16px 20px;
+    margin-bottom:14px;
+  }
+  .q-title{font-weight:600;color:var(--navy);margin-bottom:10px;}
+  .q-title .qnum{color:var(--gold);margin-right:6px;}
+  .options{list-style:none;padding:0;margin:0;}
+  .options li{
+    padding:8px 12px;border:1px solid var(--line);border-radius:6px;
+    margin-bottom:6px;cursor:pointer;transition:.15s;
+  }
+  .options li:hover{background:#f1f4fb;}
+  .options li.selected{border-color:var(--blue);background:#eaf0fb;}
+  .options li.correct{background:#e7f6ec;border-color:var(--green);font-weight:600;}
+  .options li.wrong{background:#fbeceb;border-color:var(--red);}
+  .explain{
+    display:none;margin-top:10px;padding:10px 14px;
+    background:#f3f7f2;border-left:4px solid var(--green);
+    border-radius:4px;font-size: 22px;color:#2a2a2a;
+  }
+  .explain.show{display:block;}
+  #score-panel{
+    position:sticky;bottom:0;background:#fff;border-top:2px solid var(--line);
+    padding:14px 20px;text-align:center;font-weight:700;color:var(--navy);
+    box-shadow:0 -2px 10px rgba(0,0,0,.06);
+  }
+  footer{
+    text-align:center;color:#888;font-size: 22px;padding:24px 10px 40px;
+  }
+  
+  	.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+  @media(max-width:768px){
+  header {  margin-top: 6rem;padding:8px 18px 30px;}
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	<div><a href="https://snoweryi.github.io/ghp/yi/y1.html" class="badge1">法規</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y2.html" class="badge1">工作場所危害辨識及預防</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y3.html" class="badge2">安全衛生管理實務</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y4.html" class="badge1">緊急事故應變處理</a></div>
+</div> 
+<header>
+  <h1>丁種 職業安全衛生業務主管</h1>
+  <p>安全衛生管理實務｜考前重點筆記與模擬選擇題</p>
+  <p>依講師吳熙民教材、勞動部職安署訓練教材整理</p>
+  <span class="badge">考試日期：2026年8月23日</span>
+</header>
+
+<nav>
+  <a href="#notes">📘 重點筆記</a>
+  <a href="#quiz">✏️ 模擬試題（50題）</a>
+</nav>
+
+<main>
+
+<section id="notes">
+  <h2>一、重點筆記整理</h2>
+
+  <div class="card">
+    <h3>1. 採光與照明</h3>
+    <div class="law"><b>職業安全衛生法 第6條第1項第14款：</b>雇主應防止未採取充足通風、採光、照明、保溫或防濕等引起之危害。</div>
+    <div class="law"><b>職業安全衛生設施規則 第313條：</b>雇主對於勞工工作場所之採光照明，應依下列規定辦理：
+      <ul>
+        <li>各工作場所須有充分之光線（處理感光材料、坑內及其他特殊作業場所不在此限）</li>
+        <li>光線應分佈均勻，明暗比並應適當</li>
+        <li>應避免光線之刺目、眩耀現象</li>
+        <li>各工作場所之窗面面積比率不得小於室內地面面積<b>十分之一</b></li>
+        <li>採光以<b>自然採光為原則</b>，但必要時得使用窗簾或遮光物</li>
+        <li>自然採光不足時，可用人工照明依規定表補足</li>
+        <li>燈盞裝置應採用玻璃燈罩及日光燈為原則，燈泡須完全包蔽於玻璃罩中</li>
+        <li>窗面及照明器具之透光部份，均須保持清潔</li>
+      </ul>
+    </div>
+    <div class="law"><b>職業安全衛生設施規則 第314條：</b>雇主對於下列場所之照明設備，應保持其適當照明，遇有損壞，應即修復：
+      <ol>
+        <li>階梯、升降機及出入口</li>
+        <li>電氣機械器具操作部份</li>
+        <li>高壓電氣、配電盤處</li>
+        <li>高度2公尺以上之勞工作業場所</li>
+        <li>堆積或拆卸作業場所</li>
+        <li>修護鋼軌或行於軌道上之車輛更換、連接作業場所</li>
+        <li>其他易因光線不足引起勞工災害之場所</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>2. 通道</h3>
+    <div class="law"><b>職業安全衛生設施規則 第21條：</b>雇主對於勞工工作場所之通道、地板、階梯、坡道、工作台或其他勞工踩踏場所，應保持不致使勞工<b>跌倒、滑倒、踩傷、滾落</b>等之安全狀態，或採取必要之預防措施。</div>
+    <div class="law"><b>第30條：</b>出入口、樓梯、通道、安全門、安全梯等應設置適當之採光或照明，必要時應設置<b>緊急照明系統</b>。</div>
+    <div class="law"><b>第31條：</b>室內工作場所應依下列規定設置足夠勞工使用之通道：
+      <ul>
+        <li>主要人行道不得小於<b>1公尺</b></li>
+        <li>各機械間或其他設備間通道不得小於<b>80公分</b></li>
+        <li>自路面起算2公尺高度之範圍內，不得有障礙物（因工作需要且採防護措施者不在此限）</li>
+        <li>主要人行道及有關安全門、安全梯應有明顯標示</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>3. 5S活動</h3>
+    <table>
+      <tr><th>項目</th><th>日文</th><th>意義</th></tr>
+      <tr><td>整理</td><td>SEIRI</td><td>將需要與不需要的東西加以區分，不擺放不需要的東西</td></tr>
+      <tr><td>整頓</td><td>SEITON</td><td>將需要的東西擺放在任何人立即可取得的狀態</td></tr>
+      <tr><td>清掃</td><td>SEISO</td><td>保持工作場所沒有垃圾、髒物及污穢</td></tr>
+      <tr><td>清潔</td><td>SEIKETSU</td><td>將整理、整頓、清掃工作徹底執行</td></tr>
+      <tr><td>身美（教養）</td><td>SHITSUKE</td><td>養成正確執行所決定事項之良好習慣</td></tr>
+    </table>
+    <p><b>整理推動判斷基準：</b>3日內使用→靠近使用地點；1週內使用→靠近工程處；3個月內使用→靠近工作場所處；不確定→放臨時倉庫（超過1年未用再處理）；不需要→立即處理掉。</p>
+    <p><b>5S功能：</b>形象提昇(SALES)、降低成本(SAVING)、交貨準時、安全衛生(SAFETY)、標準化基礎(STANDARDIZATION)、令人滿意的工作場所(SATISFACTION)。</p>
+    <p><b>5S之最大功用：</b>合理化流程劃分責任區、物料標示清楚不缺料、無呆料、生產順暢效率提高、無不安全狀況作業安全性增加。</p>
+  </div>
+
+  <div class="card">
+    <h3>4. 機械設備安全</h3>
+    <p><b>目的：</b>保護人員安全、維護正常作業、減少財產損失。</p>
+    <p><b>良好機械防護物需具備之條件：</b>符合法令及國家標準規定；為機器上之永久設備或裝置；堅固耐用不易著火腐蝕；提供最大防護功能；不減低機器本體強度；本身不造成新危險；不妨礙生產或操作；容易保養、上油、檢查、調整及修理。</p>
+    <p><b>機械職災概況：</b>失能職災類型(機械製造修配業)中，<b>捲夾佔75%</b>，遠高於刺擦割傷、墜落滾落、被撞、物體飛落等。</p>
+    <p><b>機械危害發生位置：</b>作業區、動力傳動區、移動區（例：機車頂車機）。</p>
+    <p><b>常見安全防護：</b>護圍、護罩；具連鎖性能之安全門；安全停止裝置（緊急按鈕、拉桿、安全門）。</p>
+    <p><b>緊急制動裝置（設施規則45、48條）：</b>原動機、動力轉動機械、動力傳動裝置具顯著危險者，應有明顯標誌之緊急制動裝置，設於適當位置以便立即使用，具遮斷動力＋制動功能，文字標示＋紅色。</p>
+    <p><b>送菜升降梯五大安全裝置：</b>①緊急停止 ②極限開關（上/下極限） ③馬達保護器 ④保險絲 ⑤鋼索耐重噸數。</p>
+  </div>
+
+  <div class="card">
+    <h3>5. 源頭管理與末端管理／罰則</h3>
+    <div class="law"><b>職安法第5條第2項：</b>機械、設備、器具、原料、材料等物件之設計、製造或輸入者，及工程之設計或施工者，應於<b>設計、製造、輸入或施工規劃階段</b>實施風險評估，致力防止此等物件於使用或施工時發生職業災害。（源頭管理，控制在設計製造或進口端）</div>
+    <p><b>末端管理 vs 源頭管理：</b>勞工安全衛生法時期為末端管理（使用端/雇主）；職業安全衛生法時期強調源頭管理（源頭端/風險產生者：設計、製造、輸入）。</p>
+    <p><b>安全標示與驗證合格標章：</b>選購安全設備時可辨識 <b>TS標章</b>（勞動部職業安全衛生署安全標準認證）與 <b>BSMI標章</b>（經濟部標準檢驗局認證）。</p>
+    <div class="law"><b>職安法第6條（必要之安全衛生設施）罰則：</b>
+      <ul>
+        <li>違反6-1致發生死亡災害者 → 處5年以下有期徒刑 / 科150萬元以下罰金（職安法第40條）</li>
+        <li>違反6-1致3人以上罹災之災害者 → 處3年以下有期徒刑 / 科100萬元以下罰金（職安法第41條）</li>
+        <li>違反6-1 → 罰5萬～300萬罰鍰（職安法第43條）</li>
+        <li>違反6-2（重複性作業等異常負荷、不法侵害預防），經通知限期改善屆期未改善，或致發生職業病者 → 3萬～75萬罰鍰</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>6. 手工具及電動手工具安全使用</h3>
+    <table>
+      <tr><th>工具種類</th><th>可能危害</th><th>防護措施</th></tr>
+      <tr><td>氣動工具</td><td>噪音、振動、捲入</td><td>防護眼鏡、耳塞、避免寬鬆衣物</td></tr>
+      <tr><td>油、液壓工具</td><td>漏油</td><td>定期保養檢查控油閥</td></tr>
+      <tr><td>電動工具</td><td>碎削噴飛、火花、振動</td><td>防護眼鏡、耳罩</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>7. 感電危害預防（電氣安全）</h3>
+    <div class="law"><b>職業安全衛生設施規則第264條／用電場所及專任電氣技術人員管理規則：</b>
+      <ul>
+        <li><b>低壓（600V以下）</b>且契約容量達50瓩以上之工廠或供公眾使用之建築物 → 應置<b>初級</b>電氣技術人員</li>
+        <li><b>高壓</b>（超過600V至22,800V） → 應置<b>中級</b>電氣技術人員</li>
+        <li><b>特高壓</b>（超過22,800V） → 應置<b>高級</b>電氣技術人員</li>
+      </ul>
+      高級電氣技術人員資格：具電機技師資格，或室內配線／工業配線等甲級技術士技能檢定合格。
+    </div>
+    <div class="law"><b>第241條（帶電部分之防護）：</b>電氣機具帶電部分有致發生感電之虞者，應設防止感電之<b>護圍或絕緣被覆</b>（設於配電室等被區隔場所且禁止無關人員進入者不在此限）。</div>
+    <div class="law"><b>第242條（電燈之護罩）：</b>移動電線之攜帶型電燈等，應設置護罩，燈座露出帶電部分應為手指不易接觸之構造，並使用<b>不易變形或破損之材料</b>。</div>
+    <div class="law"><b>第243條（漏電斷路器）：</b>對地電壓150V以上移動式/攜帶式電動機具、潮濕或導電良好場所使用之移動式/攜帶式電動機具、建築或工程臨時用電設備，應設置<b>高敏感度、高速型</b>漏電斷路器。</div>
+    <div class="law"><b>第239條：</b>電氣器材及電線等應符合<b>國家標準規格</b>。</div>
+    <div class="law"><b>第239-1條：</b>電氣設備應依用戶用電設備裝置規則規定，於<b>非帶電金屬部分</b>施行接地。</div>
+    <div class="law"><b>第249條：</b>良導體機械設備內之檢修工作所用照明燈工具，使用電壓不得超過<b>24V</b>，可認為24V為安全電壓。</div>
+    <h3>接地(Grounding)電阻值</h3>
+    <table>
+      <tr><th>種類</th><th>適用處所</th><th>電阻值</th></tr>
+      <tr><td>特種接地</td><td>三相四線多重接地系統供電區用戶變壓器低壓電源系統接地、高壓用電設備接地</td><td>10Ω以下</td></tr>
+      <tr><td>第一種接地</td><td>非接地系統之高壓用電設備接地</td><td>25Ω以下</td></tr>
+      <tr><td>第二種接地</td><td>三相三線式非接地系統供電區用戶變壓器低壓電源系統接地</td><td>50Ω以下</td></tr>
+      <tr><td>第三種接地</td><td>低壓用電設備接地、內線系統接地等</td><td>對地電壓150V以下:100Ω以下<br>151~300V:50Ω以下<br>301V以上:10Ω以下</td></tr>
+    </table>
+    <p>107年7月1日起，交流電焊機應符合 <b>CNS 4782</b> 自動電擊防止裝置國家標準，張貼型式驗證合格標章始能使用。</p>
+    <h3>感電電流與人體生理反應（60Hz交流，男子，mA）</h3>
+    <table>
+      <tr><th>反應</th><th>電流值</th></tr>
+      <tr><td>最小感知電流</td><td>1.1</td></tr>
+      <tr><td>無痛苦電流</td><td>9</td></tr>
+      <tr><td>脫離界限電流</td><td>16</td></tr>
+      <tr><td>電凍電流</td><td>23</td></tr>
+      <tr><td>致命電流</td><td>1000（電擊0.03秒）</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>8. 高處作業危害預防</h3>
+    <p>工作場所重大職災中，<b>墜落約佔全部災害49%</b>。</p>
+    <div class="law"><b>職業安全衛生設施規則第229條（移動梯）：</b>
+      <ul>
+        <li>具有堅固之構造，材質不得有顯著損傷、腐蝕等</li>
+        <li>寬度應在<b>30公分以上</b></li>
+        <li>應採取防止滑溜或其他防止轉動之必要措施</li>
+      </ul>
+      移動梯構造要點：最小柱間寬度30公分以上；踏板垂直間隔30~35公分為宜；梯柱和地板建議<b>75度以內</b>使用（4:1之比）；上端應凸出板面<b>60~100公分</b>；不得搭接使用；不得二人以上同時攀登。
+    </div>
+    <div class="law"><b>第230條（合梯）：</b>
+      <ul>
+        <li>具有堅固之構造，材質不得有顯著損傷、腐蝕</li>
+        <li>梯腳與地面之角度應在<b>75度以內</b>，且兩梯腳間有金屬等硬質繫材扣牢，腳部有防滑絕緣腳座套</li>
+        <li>有安全之防滑梯面</li>
+        <li>不得使勞工以合梯當作二工作面之上下設備使用，並<b>禁止站立於頂板作業</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>9. 人因性危害預防（人因工程）</h3>
+    <p>探討人與機器設備、環境間交互作用之關係，透過設計適當調整，避免設計不良對工作者造成傷害，如：<b>椎間盤突出、下背痛、膝關節半月狀軟骨病變、腕道症候群</b>等。</p>
+    <p><b>造成骨骼肌肉傷害的五大成因：</b>不良的姿勢、過度施力、高重複動作、長時間暴露、震動與低溫。</p>
+    <p><b>肌肉骨骼疾病預防方法：</b>適當運動、平時維持良好姿勢、搬運重物前暖身並採蹲踞姿動作、手部避免同一姿勢過長、適時使用手工具代替人力作業。</p>
+  </div>
+
+  <div class="card">
+    <h3>10. 異常工作負荷促發疾病預防（過勞）</h3>
+    <div class="law"><b>職業安全衛生設施規則第324-2條：</b>雇主使勞工從事輪班、夜間工作、長時間工作等作業，應訂定<b>異常工作負荷促發疾病預防計畫</b>，採取措施：辨識評估高風險群、安排醫師面談及健康指導、調整或縮短工時、實施健康檢查管理及促進、執行成效評估及改善等。所稱<b>長時間工作</b>，指近<b>6個月內</b>，每個月內的加班時數。</div>
+    <p><b>職業促發腦血管及心臟疾病之認定參考指引 — 長期工作過重判定：</b></p>
+    <table>
+      <tr><th>條件</th><th>關聯性</th></tr>
+      <tr><td>發病前1個月加班時數超過100小時</td><td>極相關</td></tr>
+      <tr><td>發病前2至6個月平均每月超過80小時</td><td>極相關</td></tr>
+      <tr><td>發病前1至6個月平均加班小於45小時</td><td>關聯性薄弱</td></tr>
+    </table>
+    <p><b>心血管疾病危險因子：</b>三高、肥胖、抽菸、睡眠不足、缺乏運動、不健康飲食、壓力、高工時。</p>
+  </div>
+
+  <div class="card">
+    <h3>11. 職場暴力與不法侵害預防</h3>
+    <div class="law"><b>職業安全衛生設施規則第324-3條：</b>雇主為預防勞工於工作場所執行職務，因他人行為致遭受身體或精神上不法侵害，應訂定<b>執行職務遭受不法侵害預防計畫</b>，採取措施：辨識評估危害、適當配置作業場所、依工作適性調整人力、建構行為規範、辦理危害預防及溝通技巧訓練、建立事件處理程序、執行成效評估及改善。事業單位勞工人數<b>達100人以上</b>者應依規定訂定計畫並執行；未達100人者得以執行紀錄或文件代替。</div>
+    <p><b>職場暴力行為態樣：</b>肢體暴力（毆打、抓傷、拳打、腳踢）、心理暴力（威脅、欺凌、騷擾、辱罵）、言語暴力（霸凌、恐嚇、干擾歧視）、性騷擾（不當性暗示與行為）。</p>
+  </div>
+
+  <div class="card">
+    <h3>12. 職業衛生～化學品</h3>
+    <p><b>工作中常用之化學品：</b>汽車修理業～汽油、油精、潤滑劑；餐飲業～瓦斯、酒精膏、清潔劑、洗碗精。管理不善或危害辨識不足可能導致火災、爆炸、健康危害、職業病。</p>
+    <p><b>GHS標示圖式（部分）：</b>火焰（易燃物）、圓圈上一團火焰（氧化性物質）、炸彈爆炸（爆炸物）、腐蝕（金屬腐蝕物、皮膚刺激）、氣體鋼瓶（加壓氣體）、骷髏與兩根交叉骨（急毒性物質）、驚嘆號（急毒性第4級、皮膚刺激）、環境（水環境危害物質）、健康危害（呼吸道過敏、致癌物質等）。</p>
+    <p><b>物質安全資料表(SDS)16項：</b>①物品與廠商資料 ②危害辨識資料 ③成分辨識資料 ④急救措施 ⑤滅火措施 ⑥洩漏處理方法 ⑦安全處置與儲存方法 ⑧暴露預防措施 ⑨物理及化學性質 ⑩安定性及反應性 ⑪毒性資料 ⑫生態資料 ⑬廢棄處置方法 ⑭運送資料 ⑮法規資料 ⑯其他資料。</p>
+    <p><b>預防化學品暴露之方法：</b>取代、工程控制、行政管理、個人防護具（優先順序：取代＞工程控制＞行政管理＞個人防護具）。</p>
+  </div>
+
+  <div class="card">
+    <h3>13. 噪音</h3>
+    <p><b>噪音管制法第2條：</b>噪音指超過管制標準之聲音，管制對象包括工廠(場)、娛樂場所、營業場所、營建工程、擴音設施及其他。</p>
+    <p><b>工作環境中之噪音：</b>汽車修理業～機械設備使用中氣動、電動手工具；餐飲業～抽油煙機；工作中活動～切剁菜聲；環境背景噪音。</p>
+    <p><b>噪音危害預防：</b>選擇低噪音設備、<b>超過90分貝採取工程控制</b>、配戴有效之耳塞耳罩、工作方法改善、進行噪音危害之健康檢查。</p>
+  </div>
+
+  <div class="card">
+    <h3>14. 防護具</h3>
+    <table>
+      <tr><th>防護部位</th><th>防護具名稱</th></tr>
+      <tr><td>呼吸防護</td><td>防塵口(面)罩、防毒口(面)罩、供氣式呼吸防護具</td></tr>
+      <tr><td>聽力防護</td><td>耳塞、耳罩</td></tr>
+      <tr><td>身體防護</td><td>工作服、化學防護衣、圍裙、防熱衣</td></tr>
+      <tr><td>手部防護</td><td>化學防護手套、耐熱手套、絕緣手套</td></tr>
+      <tr><td>足部防護</td><td>安全鞋（鞋底防滑防熱防水；鞋頭需有<b>護趾鋼頭</b>防尖銳物及重物衝擊）</td></tr>
+      <tr><td>頭部防護</td><td>一般安全帽、電工安全帽</td></tr>
+      <tr><td>面部及眼睛防護</td><td>防護面罩、防護眼鏡</td></tr>
+      <tr><td>其他</td><td>安全帶</td></tr>
+    </table>
+    <p>汽車業者使用有機溶劑應使用可吸附有機溶劑之防毒口罩；耳塞使用時應根據自己耳道大小配用，耳道與耳塞要緊密貼合，塞入後靜止約30秒確認貼合。</p>
+  </div>
+
+  <div class="card">
+    <h3>15. 結語</h3>
+    <ul>
+      <li>災害事故之發生～「忽略」是壓死自己的最後一根稻草。</li>
+      <li>謹守合乎安全衛生作業之標準方式落實執行。</li>
+      <li>拋棄過度自信及僥倖性之心態。</li>
+      <li>繁與煩之落實執行，方能大幅降低事故災害之發生。</li>
+    </ul>
+  </div>
+
+</section>
+
+<section id="quiz">
+  <h2>二、模擬選擇題（共50題）</h2>
+  <p style="color:#666;font-size:.92em;">點選選項後立即顯示對錯與解析；亦可用「顯示全部答案」快速核對，或「送出並計分」統計總分。</p>
+  <div class="quiz-toolbar">
+    <button class="btn" onclick="checkAll()">送出並計分</button>
+    <button class="btn secondary" onclick="toggleAllAnswers()">顯示／隱藏全部答案</button>
+    <button class="btn secondary" onclick="resetQuiz()">重新作答</button>
+  </div>
+
+  <div id="quiz-container"></div>
+
+  <div id="score-panel">尚未作答｜共 50 題</div>
+</section>
+
+</main>
+
+<footer>
+  資料來源：勞動部職安署網頁資料／丁種職業安全衛生業務主管訓練教材／吳熙民老師職業安全衛生訓練教材<br>
+  本筆記與模擬題僅供個人複習參考，正式考試以勞動部職安署公告內容為準。
+</footer>
+
+<script>
+const questions = [
+["職業安全衛生設施規則第313條規定，各工作場所之窗面面積比率不得小於室內地面面積多少？",
+ ["二十分之一","十分之一","五分之一","八分之一"],1,
+ "窗面面積比率不得小於室內地面面積十分之一。"],
+
+["依設施規則第313條，工作場所之採光應以何者為原則？",
+ ["人工照明","自然採光","LED照明","鹵素燈照明"],1,
+ "採光以自然採光為原則，但必要時得使用窗簾或遮光物。"],
+
+["依職業安全衛生設施規則第314條，下列何場所之照明設備應保持適當照明，遇有損壞應即修復？",
+ ["茶水間","階梯、升降機及出入口","會議室","休息室"],1,
+ "第314條列舉階梯、升降機及出入口等7類場所應保持適當照明。"],
+
+["依職業安全衛生設施規則第21條，雇主對於勞工工作場所之通道、地板、階梯等，應保持不致使勞工發生下列何種情形之安全狀態？",
+ ["跌倒、滑倒、踩傷、滾落","疲勞、口渴","遲到、早退","以上皆非"],0,
+ "第21條規定應保持不致使勞工跌倒、滑倒、踩傷、滾落等之安全狀態。"],
+
+["依設施規則第31條，室內工作場所主要人行道寬度不得小於多少？",
+ ["50公分","80公分","1公尺","1.5公尺"],2,
+ "主要人行道不得小於1公尺。"],
+
+["依設施規則第31條，各機械間或其他設備間通道不得小於多少公分？",
+ ["50公分","80公分","100公分","120公分"],1,
+ "各機械間或其他設備間通道不得小於80公分。"],
+
+["依設施規則第30條，雇主對於工作場所出入口、樓梯、通道、安全門、安全梯等，必要時應設置何種系統以備平常照明系統失效時使用？",
+ ["備用發電機","緊急照明系統","太陽能板","蓄電池組"],1,
+ "必要時應視需要設置平常照明系統失效時使用之緊急照明系統。"],
+
+["5S活動中，「整理」（SEIRI）之意義為？",
+ ["將需要與不需要的東西加以區分","將東西擺放整齊","打掃環境","遵守規定"],0,
+ "整理是將需要與不需要的東西加以區分，不擺放不需要的東西。"],
+
+["5S活動中，「整頓」（SEITON）之意義為？",
+ ["區分要與不要","將需要的東西擺放在任何人立即都可取得到的狀態","清除垃圾","養成良好習慣"],1,
+ "整頓是將需要的東西擺放置在任何人立即都可取得到的狀態。"],
+
+["5S活動中，「身美」（SHITSUKE）即中文之何種意義？",
+ ["清潔","整頓","教養","效率"],2,
+ "身美（SHITSUKE）亦即中文之「教養」的意義。"],
+
+["依教材，整理推動的方法中，三個月使用一次以上的東西應放置於何處？",
+ ["臨時倉庫","靠近使用地點處","靠近工作場所處","立即處理掉"],2,
+ "三個月中使用一次以上的東西，放在靠近工作場所處。"],
+
+["5S功能中，「SAFETY」代表下列何種功能？",
+ ["形象提昇","降低成本","安全衛生","交貨準時"],2,
+ "SAFETY代表安全衛生：定位定量定容、乾淨明亮的工作環境、車輛安全檢查等。"],
+
+["依教材，5S之最大功用不包括下列何者？",
+ ["合理化流程，劃分責任區","無呆料","提高員工薪資","生產順暢效率提高"],2,
+ "提高員工薪資非5S之最大功用項目。"],
+
+["良好的機械防護物需具備之條件，不包括下列何者？",
+ ["符合職業安全衛生法令及國家標準規定","應為機器上之一項永久設備或裝置","會因設置而減低機器本體強度","容易保養、上油、檢查"],2,
+ "良好防護物不會因設置而減低機器本體之強度。"],
+
+["依教材機械職災概況統計，失能職災類型（機械製造修配業）中，占比最高者為何？",
+ ["墜落滾落","被撞","刺擦割傷","捲夾"],3,
+ "依教材統計，捲夾佔失能職災類型75%，遠高於其他類型。"],
+
+["機械之危害發生位置，依教材圖示（機車頂車機）可能位置為作業區、動力傳動區及下列何者？",
+ ["休息區","移動區","辦公區","停車區"],1,
+ "機械危害發生位置為作業區、動力傳動區及移動區。"],
+
+["送菜升降梯之五大安全裝置，不包括下列何者？",
+ ["緊急停止","極限開關","馬達保護器","噴漆標示"],3,
+ "五大安全裝置為緊急停止、極限開關、馬達保護器、保險絲、鋼索耐重噸數，不含噴漆標示。"],
+
+["依職安法必要安全衛生設施規定，違反致發生死亡災害者，依職業安全衛生法第40條可處多少年以下有期徒刑？",
+ ["3年","5年","7年","10年"],1,
+ "違反6-1致發生死亡災害者，處5年以下有期徒刑，得科或併科150萬元以下罰金。"],
+
+["違反職安法6-1，致3人以上罹災之災害者，依職安法第41條可處多少年以下有期徒刑？",
+ ["1年","2年","3年","5年"],2,
+ "致3人以上罹災之災害者，處3年以下有期徒刑，得科或併科100萬元以下罰金。"],
+
+["職業安全衛生法第5條第2項規定之精神，主要強調下列何種管理概念？",
+ ["末端管理","源頭管理","事後管理","被動管理"],1,
+ "第5條第2項要求設計、製造、輸入者於規劃階段實施風險評估，屬於源頭管理。"],
+
+["依教材說明，勞工安全衛生法時期採取何種管理？職業安全衛生法時期則強調何種管理？",
+ ["源頭管理／末端管理","末端管理／源頭管理","都是末端管理","都是源頭管理"],1,
+ "勞工安全衛生法為末端管理（使用端/雇主），職業安全衛生法強調源頭管理（源頭端/風險產生者）。"],
+
+["TS標章代表下列何機關之安全標準認證？",
+ ["經濟部標準檢驗局","勞動部職業安全衛生署","環保署","衛福部"],1,
+ "TS標章為勞動部職業安全衛生署的安全標準認證。"],
+
+["BSMI標章代表下列何機關之認證？",
+ ["經濟部標準檢驗局","勞動部職業安全衛生署","交通部","內政部"],0,
+ "BSMI標章為經濟部標準檢驗局的認證標章。"],
+
+["依GHS標示圖式，「骷髏與兩根交叉骨」圖示代表下列何種危害物質？",
+ ["易燃物質","氧化性物質","急毒性物質（第1-3級）","水環境之危害物質"],2,
+ "骷髏與兩根交叉骨圖示代表急毒性物質第1級至第3級。"],
+
+["依職業安全衛生設施規則第264條規定，低壓受電且契約容量達五十瓩以上之工廠，應置何種電氣技術人員？",
+ ["初級電氣技術人員","中級電氣技術人員","高級電氣技術人員","不須設置"],0,
+ "低壓600V以下供電且契約容量達50瓩以上，應置初級電氣技術人員。"],
+
+["依第264條規定，超過六百伏特至二萬二千八百伏特供電之用電場所，應置何種電氣技術人員？",
+ ["初級","中級","高級","特級"],1,
+ "高壓（超過600V至22,800V）供電之用電場所，應置中級電氣技術人員。"],
+
+["依用電場所及專任電氣技術人員管理規則第6條，高級電氣技術人員資格之一為具有何種資格？",
+ ["甲種電匠考驗合格","電機技師資格","乙種電匠考驗合格","丙級技術士"],1,
+ "高級電氣技術人員資格之一為具有電機技師資格。"],
+
+["依職業安全衛生設施規則第241條規定，電氣機具之帶電部分，如有致發生感電之虞者，應設防止感電之護圍或何種措施？",
+ ["絕緣被覆","噴漆處理","加裝警示燈","張貼標語"],0,
+ "應設防止感電之護圍或絕緣被覆。"],
+
+["依第242條規定，電燈之護罩應使用何種材料？",
+ ["易變形材料","不易變形或破損之材料","紙材","木材"],1,
+ "電燈護罩應使用不易變形或破損之材料。"],
+
+["依設施規則第243條，漏電斷路器應具備高敏感度、何種速度型式？",
+ ["低速型","中速型","高速型","慢速型"],2,
+ "應設置具高敏感度、高速型，能確實動作之漏電斷路器。"],
+
+["依接地(Grounding)規定，非接地系統之高壓用電設備接地屬於第幾種接地？",
+ ["特種接地","第一種接地","第二種接地","第三種接地"],1,
+ "非接地系統之高壓用電設備接地屬於第一種接地，電阻值25Ω以下。"],
+
+["依接地規定，第三種接地對地電壓150V以下之電阻值規定為多少以下？",
+ ["10Ω","25Ω","50Ω","100Ω"],3,
+ "第三種接地對地電壓150V以下者，電阻值100Ω以下。"],
+
+["依職業安全衛生設施規則第249條規定，良導體機械設備內之檢修工作所用照明燈工具，使用電壓不得超過多少伏特？",
+ ["12V","24V","36V","48V"],1,
+ "使用電壓不得超過24V，可認為24V為安全電壓。"],
+
+["依感電電流與人體生理反應表，60Hz交流電流達多少mA以上（男子）時屬於致命電流範圍？",
+ ["9mA","23mA","1000mA","9mA以下"],2,
+ "60Hz交流電流男子致命電流約為1000mA，心室痙攣、血液循環停止，足以致命。"],
+
+["噪音危害預防中，超過多少分貝應採取工程控制？",
+ ["70分貝","80分貝","90分貝","100分貝"],2,
+ "教材指出應選擇低噪音設備，超過90分貝應採取工程控制，並配戴有效之耳塞耳罩。"],
+
+["107年7月1日起，交流電焊機應符合何種國家標準之自動電擊防止裝置規定？",
+ ["CNS 4782","CNS 1234","CNS 5678","CNS 9999"],0,
+ "107年7月1日起，交流電焊機應符合CNS 4782自動電擊防止裝置國家標準。"],
+
+["依職業安全衛生設施規則第239條規定，雇主使用之電氣器材及電線等，應符合何種規格？",
+ ["進口規格","國家標準規格","客戶指定規格","以上皆非"],1,
+ "雇主使用之電氣器材及電線等，應符合國家標準規格。"],
+
+["依第239-1條規定，雇主對於使用之電氣設備，應依用戶用電設備裝置規則規定，於何處施行接地？",
+ ["帶電金屬部分","非帶電金屬部分","木質部分","塑膠部分"],1,
+ "應於非帶電金屬部分施行接地。"],
+
+["依教材，工作場所重大職災中，墜落約佔全部災害多少百分比？",
+ ["20%","35%","49%","65%"],2,
+ "工作場所重大職災中，墜落約佔全部災害49%。"],
+
+["依職業安全衛生設施規則第229條，雇主對於使用之移動梯，其寬度應在多少公分以上？",
+ ["20公分","30公分","40公分","50公分"],1,
+ "移動梯寬度應在30公分以上。"],
+
+["依教材移動梯構造規定，移動梯梯柱和地板建議在多少度以內使用？",
+ ["60度","75度","90度","45度"],1,
+ "移動梯梯柱和地板建議在75度以內使用（4:1之比）。"],
+
+["依職業安全衛生設施規則第230條規定，雇主對於使用之合梯，梯腳與地面之角度應在多少度以內？",
+ ["60度","75度","90度","45度"],1,
+ "合梯梯腳與地面之角度應在75度以內，且兩梯腳間有金屬等硬質繫材扣牢。"],
+
+["依第230條規定，雇主不得使勞工以合梯當作二工作面之上下設備使用，並應禁止勞工站立於何處作業？",
+ ["梯腳","頂板","地面","第一階"],1,
+ "應禁止勞工站立於合梯頂板作業。"],
+
+["依教材，人因工程避免設計不良對工作者造成之傷害，不包括下列何者？",
+ ["椎間盤突出","下背痛","腕道症候群","感冒"],3,
+ "感冒非人因工程所探討之肌肉骨骼傷害類型。"],
+
+["依教材，造成骨骼肌肉傷害的五大成因，不包括下列何者？",
+ ["不良的姿勢","過度施力","高重複動作","充足睡眠"],3,
+ "五大成因為不良姿勢、過度施力、高重複動作、長時間暴露、震動與低溫，不含充足睡眠。"],
+
+["依職業安全衛生設施規則第324-2條規定，所稱長時間工作，指近幾個月內每個月內的加班時數？",
+ ["3個月","6個月","12個月","1個月"],1,
+ "所稱長時間工作，指近六個月內，每個月內的加班時數。"],
+
+["依職業促發腦血管及心臟疾病之認定參考指引，發病前1個月加班時數超過100小時，屬於下列何種關聯性？",
+ ["關聯性薄弱","極相關","無關","尚待研究"],1,
+ "發病前1個月加班時數超過100小時，屬於極相關。"],
+
+["依同一指引，發病前1至6個月平均加班小於45小時，屬於下列何種關聯性？",
+ ["極相關","高度相關","關聯性薄弱","致命相關"],2,
+ "發病前1至6個月平均加班小於45小時，屬於關聯性薄弱。"],
+
+["依職業安全衛生設施規則第324-3條規定，雇主為預防勞工於工作場所執行職務，因他人行為致遭受身體或精神上不法侵害，應訂定何種計畫？",
+ ["教育訓練計畫","執行職務遭受不法侵害預防計畫","薪資調整計畫","績效考核計畫"],1,
+ "應訂定執行職務遭受不法侵害預防計畫，並採取辨識評估危害等預防措施。"],
+
+["依教材，安全鞋之鞋頭需有下列何種構造，以防尖銳物及重物衝擊？",
+ ["塑膠頭","護趾鋼頭","布質鞋頭","皮革鞋頭"],1,
+ "安全鞋鞋頭需有護趾鋼頭，防尖銳物及重物衝擊。"]
+];
+
+const container = document.getElementById('quiz-container');
+const letters = ['A','B','C','D'];
+
+questions.forEach((q, idx) => {
+  const [text, opts, correctIdx, explain] = q;
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  qDiv.dataset.locked = "false";
+
+  const title = document.createElement('div');
+  title.className = 'q-title';
+  title.innerHTML = `<span class="qnum">第 ${idx+1} 題</span>${text}`;
+  qDiv.appendChild(title);
+
+  const ul = document.createElement('ul');
+  ul.className = 'options';
+  ul.dataset.correctIdx = correctIdx;
+  const exp = document.createElement('div');
+  exp.className = 'explain';
+  exp.innerHTML = `✅ 正解：${letters[correctIdx]}．${opts[correctIdx]}<br>解析：${explain}`;
+
+  opts.forEach((opt, oIdx) => {
+    const li = document.createElement('li');
+    li.textContent = `${letters[oIdx]}. ${opt}`;
+    li.onclick = () => {
+      if (qDiv.dataset.locked === "true") return;
+      qDiv.dataset.locked = "true";
+      qDiv.dataset.selected = oIdx;
+      li.classList.add('selected');
+      Array.from(ul.children).forEach((c, i) => {
+        if (i === correctIdx) c.classList.add('correct');
+        if (i === oIdx && oIdx !== correctIdx) c.classList.add('wrong');
+      });
+      exp.classList.add('show');
+    };
+    ul.appendChild(li);
+  });
+  qDiv.appendChild(ul);
+  qDiv.appendChild(exp);
+  container.appendChild(qDiv);
+});
+
+function checkAll(){
+  let correctCount = 0;
+  const qDivs = document.querySelectorAll('.q');
+  qDivs.forEach(qDiv => {
+    const ul = qDiv.querySelector('.options');
+    const correctIdx = parseInt(ul.dataset.correctIdx);
+    const selected = qDiv.dataset.selected;
+    qDiv.dataset.locked = "true";
+    Array.from(ul.children).forEach((li, i) => {
+      if (i === correctIdx) li.classList.add('correct');
+      if (selected !== undefined && parseInt(selected) === i && i !== correctIdx) li.classList.add('wrong');
+    });
+    qDiv.querySelector('.explain').classList.add('show');
+    if (selected !== undefined && parseInt(selected) === correctIdx) correctCount++;
+  });
+  document.getElementById('score-panel').textContent =
+    `作答完成｜答對 ${correctCount} / ${qDivs.length} 題（${Math.round(correctCount/qDivs.length*100)}分）`;
+  document.getElementById('score-panel').scrollIntoView({behavior:'smooth', block:'end'});
+}
+
+let showingAll = false;
+function toggleAllAnswers(){
+  showingAll = !showingAll;
+  document.querySelectorAll('.explain').forEach(e => e.classList.toggle('show', showingAll));
+  if(showingAll){
+    document.querySelectorAll('.q').forEach(qDiv=>{
+      const ul = qDiv.querySelector('.options');
+      const correctIdx = parseInt(ul.dataset.correctIdx);
+      Array.from(ul.children).forEach((li,i)=>{
+        if(i===correctIdx) li.classList.add('correct');
+      });
+    });
+  } else {
+    document.querySelectorAll('.options li').forEach(li=>li.classList.remove('correct','wrong'));
+  }
+}
+
+function resetQuiz(){
+  document.querySelectorAll('.q').forEach(qDiv=>{
+    qDiv.dataset.locked = "false";
+    qDiv.dataset.selected = "";
+    qDiv.querySelector('.explain').classList.remove('show');
+    Array.from(qDiv.querySelectorAll('.options li')).forEach(li=>{
+      li.classList.remove('selected','correct','wrong');
+    });
+  });
+  showingAll = false;
+  document.getElementById('score-panel').textContent = "尚未作答｜共 50 題";
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
