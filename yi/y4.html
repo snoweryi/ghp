@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>緊急事故應變處理(含急救常識) - 筆記與考試題庫</title>
+<style>
+  :root{
+    --main:#0f7a5c;
+    --main-dark:#0a5a43;
+    --accent:#d9534f;
+    --bg:#f6faf8;
+    --card:#ffffff;
+    --border:#dbe8e2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:"Microsoft JhengHei","PingFang TC","Noto Sans TC",sans-serif;
+    background:var(--bg);
+    color:#223;
+    margin:0;
+    line-height:1.7;
+	font-size: 22px;
+  }
+  header{
+    background:linear-gradient(135deg,var(--main),var(--main-dark));
+    color:#fff;
+    padding:32px 20px;
+    text-align:center;
+  }
+  header h1{margin:0 0 8px;font-size:1.8em;}
+  header p{margin:0;opacity:.9;font-size:22px;}
+  .container{max-width:1900px;margin:0 auto;padding:20px;}
+  nav{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:16px 20px;
+    margin-bottom:24px;
+  }
+  nav h2{margin-top:0;font-size:1.2em;color:var(--main-dark);}
+  nav ul{columns:2;list-style:none;padding-left:0;margin:0;}
+  nav li{margin-bottom:6px;}
+  nav a{color:var(--main-dark);text-decoration:none;}
+  nav a:hover{text-decoration:underline;}
+  section{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px 24px;
+    margin-bottom:20px;
+  }
+  h2.sec-title{
+    color:#fff;
+    background:var(--main);
+    display:inline-block;
+    padding:6px 16px;
+    border-radius:6px;
+    font-size:22px;
+    margin-top:0;
+  }
+  h3{color:var(--main-dark);border-left:4px solid var(--main);padding-left:8px;margin-top:20px;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:22px;}
+  th,td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:#e7f3ee;color:var(--main-dark);}
+  ul,ol{padding-left:22px;}
+  li{margin-bottom:4px;}
+  .tip{
+    background:#fff6e6;
+    border-left:4px solid #e6a817;
+    padding:10px 14px;
+    border-radius:4px;
+    margin:12px 0;
+    font-size:22px;
+  }
+  .law{
+    background:#eef4ff;
+    border-left:4px solid #3b6fd6;
+    padding:10px 14px;
+    border-radius:4px;
+    margin:12px 0;
+    font-size:22px;
+  }
+  .keypoint{font-weight:bold;color:var(--accent);}
+  .badge{
+    display:inline-block;
+    background:var(--main);
+    color:#fff;
+    border-radius:4px;
+    padding:1px 8px;
+    font-size:22px;
+    margin-right:6px;
+  }
+  /* Quiz styles */
+  .q{
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:14px 16px;
+    margin-bottom:14px;
+    background:#fdfefe;
+  }
+  .q-num{color:var(--main-dark);font-weight:bold;}
+  .options{list-style:none;padding-left:0;margin:8px 0 0;}
+  .options li{
+    padding:6px 10px;
+    border:1px solid #e3ece8;
+    border-radius:6px;
+    margin-bottom:6px;
+    cursor:pointer;
+  }
+  .options li:hover{background:#f0f8f4;}
+  .options li.correct-mark{border-color:#2e9e5b;background:#e6f6ec;font-weight:bold;}
+  .options li.wrong-mark{border-color:var(--accent);background:#fdeceb;}
+  .answer-box{
+    display:none;
+    margin-top:10px;
+    padding:8px 12px;
+    background:#eefaf1;
+    border:1px dashed #2e9e5b;
+    border-radius:6px;
+    font-size:22px;
+  }
+  .answer-box.show{display:block;}
+  .toggle-btn{
+    margin-top:8px;
+    background:var(--main);
+    color:#fff;
+    border:none;
+    padding:6px 14px;
+    border-radius:6px;
+    cursor:pointer;
+   font-size:22px;
+  }
+  .toggle-btn:hover{background:var(--main-dark);}
+  .controls{
+    text-align:center;
+    margin:20px 0;
+  }
+  .controls button{
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:22px;
+    margin:0 6px;
+  }
+  .controls button.alt{background:var(--main);}
+  .score-board{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    color:var(--main-dark);
+    margin-bottom:10px;
+  }
+  footer{
+    text-align:center;
+    color:#789;
+    font-size:22px;
+    padding:24px 0 40px;
+  }
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+  @media(max-width:768px){
+  header {  margin-top: 6rem;padding:8px 18px 30px;}
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	<div><a href="https://snoweryi.github.io/ghp/yi/y1.html" class="badge1">法規</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y2.html" class="badge1">工作場所危害辨識及預防</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y3.html" class="badge2">安全衛生管理實務</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y4.html" class="badge1">緊急事故應變處理</a></div>
+</div> 
+
+<header>
+  <h1>緊急事故應變處理（含急救常識）</h1>
+  <p>丁種職業安全衛生業務主管考試 專用筆記 + 50題選擇題自我測驗　｜　依 汪禧年 博士 講義整理</p>
+</header>
+
+<div class="container">
+
+<nav>
+  <h2>📑 目錄</h2>
+  <ul>
+    <li><a href="#s1">一、急救基本概念</a></li>
+    <li><a href="#s2">二、急救相關法規（免責）</a></li>
+    <li><a href="#s3">三、黃金3分鐘與生存之鏈</a></li>
+    <li><a href="#s4">四、心肺復甦術 CPR</a></li>
+    <li><a href="#s5">五、AED 自動體外電擊器</a></li>
+    <li><a href="#s6">六、119 報案要領</a></li>
+    <li><a href="#s7">七、燒燙傷與化學灼傷處理</a></li>
+    <li><a href="#s8">八、中毒處理</a></li>
+    <li><a href="#s9">九、火災與滅火</a></li>
+    <li><a href="#s10">十、傷患搬運法</a></li>
+    <li><a href="#quiz">📝 選擇題自我測驗（50題）</a></li>
+  </ul>
+</nav>
+
+<!-- ========== 1 ========== -->
+<section id="s1">
+<h2 class="sec-title">一、急救基本概念</h2>
+
+<h3>1. 急救的定義</h3>
+<p>急救是對於遭受<span class="keypoint">意外傷害或突發疾病</span>的傷患，在<span class="keypoint">緊急醫療救護人員未達現場或送至醫院治療前</span>，給予立即的救護。</p>
+
+<h3>2. 急救的目的（考試常考四項）</h3>
+<table>
+<tr><th>目的</th><th>說明</th></tr>
+<tr><td>挽救生命</td><td>維持生命徵象，避免死亡</td></tr>
+<tr><td>防止傷勢或病情惡化</td><td>避免二次傷害</td></tr>
+<tr><td>促進康復</td><td>減輕痛苦，加速復原</td></tr>
+<tr><td>及早送醫，增進醫療效果</td><td>爭取治療時效</td></tr>
+</table>
+<div class="tip">記憶口訣：<b>挽、防、促、送</b></div>
+</section>
+
+<!-- ========== 2 ========== -->
+<section id="s2">
+<h2 class="sec-title">二、急救相關法規（不要遲疑，請伸出你的救援之手）</h2>
+<div class="law">
+<table>
+<tr><th>法規</th><th>條文重點</th></tr>
+<tr><td><b>民法第150條</b></td><td>因避免自己或他人生命、身體、自由或財產上急迫之危險所為之行為，<span class="keypoint">不負損害賠償之責</span>。</td></tr>
+<tr><td><b>刑法第24條</b></td><td>因避免自己或他人生命、身體、自由、財產之緊急危難而出於不得已之行為，<span class="keypoint">不罰</span>。</td></tr>
+<tr><td><b>醫師法第28條</b></td><td>臨時施行急救者，<span class="keypoint">不罰</span>。</td></tr>
+<tr><td><b>緊急醫療救護法第14條之2</b></td><td>非醫護人員基於<span class="keypoint">必要使用AED等緊急救護設備救人「除罪化」</span>。</td></tr>
+</table>
+</div>
+<div class="tip">考試重點：這四條法規是「善良管理人/好撒馬利亞人條款」的法源，題目常考「哪一法規讓非醫護人員用AED不受處罰」→答案是<b>緊急醫療救護法第14條之2</b>。</div>
+</section>
+
+<!-- ========== 3 ========== -->
+<section id="s3">
+<h2 class="sec-title">三、黃金3分鐘與生存之鏈</h2>
+<h3>1. 黃金3分鐘 / 腦部缺氧</h3>
+<ul>
+<li>心跳呼吸停止後，<span class="keypoint">3分鐘內</span>即可能因腦部缺氧而受損。</li>
+<li>超過<span class="keypoint">10分鐘</span>可能導致腦死，心肺功能隨之喪失。</li>
+<li>心跳停止後，<span class="keypoint">每過1分鐘，存活率下降7%~10%</span>；若適時處置（CPR），下降幅度可<span class="keypoint">減半</span>。</li>
+<li>另一版本說法：<span class="keypoint">腦部缺氧4-6分鐘</span>即可能腦死。</li>
+</ul>
+
+<h3>2. CPR 與輸送血液效果（考題常考數字）</h3>
+<table>
+<tr><th>心臟狀態</th><th>血流輸送效果</th></tr>
+<tr><td>心臟自己跳</td><td>100%</td></tr>
+<tr><td>心臟不跳</td><td>0%</td></tr>
+<tr><td>施行CPR</td><td><span class="keypoint">20-25%</span>（已足夠腦部使用）</td></tr>
+</table>
+
+<h3>3. 生存之鏈（AHA ECC 成人生存之鏈，5環節）</h3>
+<ol>
+<li>立即確認心臟停止，並啟動緊急應變系統（儘早求救）</li>
+<li>儘早CPR，並強調<span class="keypoint">先作胸部按壓</span></li>
+<li>進行快速去顫（AED）</li>
+<li>有效高級救命術</li>
+<li>整合的心臟停止後照護</li>
+</ol>
+
+<h3>4. 「3分鐘內的貴人」是誰？</h3>
+<p>答案：<span class="keypoint">一般民眾（家人、朋友、鄰居或路人）</span>——因為救護技術員、醫護人員通常無法在3分鐘內到場。</p>
+</section>
+
+<!-- ========== 4 ========== -->
+<section id="s4">
+<h2 class="sec-title">四、心肺復甦術 CPR</h2>
+
+<h3>1. CPR 的定義與適應症</h3>
+<p><b>定義：</b>結合<span class="keypoint">人工呼吸與心外按摩</span>二種技術，對生命危急之病患所採取的急救方式。</p>
+<p><b>適應症：</b>心臟病突發、窒息、觸電、過敏反應、藥物中毒、氣喘發作、異物梗塞、溺水、中風、中毒等原因引起之呼吸或/及心臟搏動停止。</p>
+<p><b>施做對象：</b>昏迷、不會動、<span class="keypoint">沒有（正常）呼吸</span>之患者。</p>
+
+<h3>2. 2010年版CPR重大變革</h3>
+<ul>
+<li>順序由 A-B-C 改為<span class="keypoint">「叫叫C-A-B」</span>：先胸部按壓，再開呼吸道，再檢查呼吸。</li>
+<li>按壓速率<span class="keypoint">至少每分鐘100次（100-120次/分）</span></li>
+<li>成人按壓深度<span class="keypoint">至少約5公分</span></li>
+<li>按壓與呼吸比例<span class="keypoint">30:2</span>，直到AED準備就緒</li>
+</ul>
+
+<h3>3. 成人CPR口訣（叫叫CABD）</h3>
+<table>
+<tr><th>步驟</th><th>內容</th><th>細節</th></tr>
+<tr><td>叫①</td><td>確認反應、呼吸</td><td>雙手用力拍打肩膀、喊叫「先生/小姐你怎麼了」，確認昏迷、沒有呼吸或不正常呼吸（檢查不超過<span class="keypoint">10秒</span>）</td></tr>
+<tr><td>叫②</td><td>求救</td><td>打119、取得AED；若無旁人則自行撥打119並立刻CPR</td></tr>
+<tr><td>C</td><td>胸部按壓 Chest compression</td><td>兩乳頭連線中央（胸骨下半段），深度至少5公分，速率100-120次/分，按壓30次</td></tr>
+<tr><td>A</td><td>暢通呼吸道 Airway</td><td>壓額抬下巴</td></tr>
+<tr><td>B</td><td>人工呼吸 Breathing</td><td>捏鼻、口對口(或面罩)吹氣2次，每次約1-2秒鐘，看到胸部起伏即可</td></tr>
+<tr><td>D</td><td>使用AED Defibrillation</td><td>依語音指示操作</td></tr>
+</table>
+
+<h3>4. 胸部按壓細節</h3>
+<ul>
+<li>位置：<span class="keypoint">兩乳頭連線中點的胸骨上（胸骨下半段）</span></li>
+<li>手勢：一手掌根定位，另一手疊於其上，十指交叉互扣翹起，以掌根施力</li>
+<li>姿勢：手肘（肘關節）打直不可彎曲，以體關節為支點，用身體重量垂直下壓</li>
+<li>深度：<span class="keypoint">至少5公分（4-5cm）</span></li>
+<li>速率：<span class="keypoint">至少100次/分（100-120次/分）</span>，讀數：一下、二下…三十</li>
+<li>比例：<span class="keypoint">壓30下、吹2口氣（30:2）</span></li>
+<li>口訣：<span class="keypoint">用力壓．快快壓．胸回彈．莫中斷</span></li>
+<li>另一口訣：<span class="keypoint">兩乳連線壓胸骨，每秒2下用力壓，壓胸回彈莫中斷</span></li>
+<li>放鬆時掌根<span class="keypoint">不可離開胸骨</span>，且不可用力</li>
+</ul>
+
+<h3>5. 小兒、嬰兒按壓位置（易混淆考點）</h3>
+<table>
+<tr><th>對象</th><th>按壓位置</th></tr>
+<tr><td>小兒</td><td>胸骨與兩乳頭連線交會處</td></tr>
+<tr><td>嬰兒</td><td>兩乳頭連線<span class="keypoint">中線下方</span></td></tr>
+</table>
+
+<h3>6. CPR的ABC三步驟意義</h3>
+<table>
+<tr><th>代號</th><th>英文</th><th>中文</th><th>動作</th></tr>
+<tr><td>A</td><td>Airway</td><td>保持呼吸道通暢</td><td>打開呼吸道，清除口腔異物</td></tr>
+<tr><td>B</td><td>Breathing</td><td>恢復呼吸功能</td><td>施行人工呼吸</td></tr>
+<tr><td>C</td><td>Circulation</td><td>恢復循環功能</td><td>施行心外按摩</td></tr>
+</table>
+
+<h3>7. 再評估生命徵象</h3>
+<p>四個CPR週期吹氣後（約<span class="keypoint">一分鐘後</span>）：</p>
+<ul>
+<li>沒有循環徵象 → 繼續CPR</li>
+<li>有循環徵象但沒有呼吸 → 人工呼吸</li>
+<li>有循環徵象、有呼吸、無意識 → 檢查身體，採<span class="keypoint">復甦姿勢</span></li>
+<li>有循環徵象、有呼吸、有意識 → 檢查身體</li>
+</ul>
+
+<h3>8. 何時停止CPR？（考試重點）</h3>
+<ul>
+<li>做到<span class="keypoint">119救護車人員趕到</span>時</li>
+<li>做到<span class="keypoint">病人恢復生命徵象</span>時</li>
+<li>當<span class="keypoint">AED正在判讀是否該電擊</span>時（此時暫停按壓，但非隨便停止）</li>
+</ul>
+<div class="tip">⚠️ 千萬<b>不要隨便停止CPR</b>！</div>
+
+<h3>9. CPR常見錯誤</h3>
+<ul>
+<li>氣吹不進去</li>
+<li>胸部按壓位置不對</li>
+<li>胸部按壓方式不對</li>
+<li>胸部按壓深度不對</li>
+<li>胸部按壓速率過慢或過快</li>
+</ul>
+</section>
+
+<!-- ========== 5 ========== -->
+<section id="s5">
+<h2 class="sec-title">五、AED 自動體外電擊器</h2>
+
+<h3>1. AED定義與功能</h3>
+<p>AED = <span class="keypoint">自動體外去顫器（Automated External Defibrillator）</span>，俗稱「傻瓜電擊器」。</p>
+<ul>
+<li>能自動偵測患者心律，分析是否可用電擊治療</li>
+<li>對心搏異常患者施以電擊，使心臟重新啟動、恢復正常頻率</li>
+<li>操作簡易、輕便且具<span class="keypoint">語音提示</span>，只要經基本訓練，一般民眾、基礎救護人員均可使用</li>
+</ul>
+
+<h3>2. 何處可找到AED？</h3>
+<p>救護車、各大公共場所（醫院、車站等）。</p>
+
+<h3>3. AED操作四步驟</h3>
+<ol>
+<li><b>開電源</b>：按下開關鍵</li>
+<li><b>貼電擊片</b>：
+  <ul>
+    <li>右側電擊片：置於<span class="keypoint">胸骨右上緣、鎖骨下方</span></li>
+    <li>左側電擊片：置於<span class="keypoint">左乳頭左下外側</span>（電擊片上緣距左腋窩下約10-15公分）</li>
+  </ul>
+</li>
+<li><b>插入電擊片導線</b></li>
+<li><b>分析心律並依指示給予電擊</b></li>
+</ol>
+
+<h3>4. AED安全操作三重點（考試常考）</h3>
+<ul>
+<li>分析心律及電擊時，<span class="keypoint">均不可接觸或碰觸病人</span></li>
+<li>電擊前警告所有人：「我離開」－「你離開」－「大家都離開」</li>
+<li>檢視確定<span class="keypoint">無人接觸患者</span>，再按下電擊鈕</li>
+</ul>
+
+<h3>5. AED救活率數據</h3>
+<ul>
+<li>研究顯示3至5分鐘內施給CPR及電擊，可使救活率提升至<span class="keypoint">49%~75%</span></li>
+<li>消防局統計：即時電擊使傷患恢復生命徵象成功機率趨近<span class="keypoint">12%</span></li>
+</ul>
+
+<h3>6. 心肺復甦術程序整體流程（叫叫CABD口訣圖）</h3>
+<ol>
+<li>確認病患意識及呼吸</li>
+<li>緊急求救並取出AED備用</li>
+<li>進行心外按壓</li>
+<li>暢通呼吸道</li>
+<li>進行人工呼吸</li>
+<li>使用AED進行急救</li>
+</ol>
+</section>
+
+<!-- ========== 6 ========== -->
+<section id="s6">
+<h2 class="sec-title">六、119 報案要領</h2>
+<p>切勿著急～仔細聆聽119接報員問題！</p>
+<table>
+<tr><th>要素</th><th>說明</th></tr>
+<tr><td><b>人</b></td><td>幾個人受傷、受困、昏倒</td></tr>
+<tr><td><b>事</b></td><td>車禍、昏倒、房子冒煙、跳水、跳樓等事故類型</td></tr>
+<tr><td><b>時</b></td><td>事故發生多久了</td></tr>
+<tr><td><b>地</b></td><td>地點、門牌地址、路口、車站</td></tr>
+<tr><td><b>物</b></td><td>地點旁明顯建築物、物體、地標</td></tr>
+</table>
+<div class="tip">口訣：<b>人、事、時、地、物</b>。切勿掛電話，接線員將持續在電話中指導您！</div>
+</section>
+
+<!-- ========== 7 ========== -->
+<section id="s7">
+<h2 class="sec-title">七、燒燙傷與化學灼傷處理</h2>
+
+<h3>1. 燒傷的種類</h3>
+<table>
+<tr><th>種類</th><th>原因</th></tr>
+<tr><td>乾燒傷</td><td>瓦斯爆炸、火災、接觸性/摩擦性灼傷</td></tr>
+<tr><td>燙傷</td><td>熱蒸氣、熱水</td></tr>
+<tr><td>冷燒傷</td><td>接觸冰凍金屬、凝固氣體，如<span class="keypoint">液氮(-196°C)</span></td></tr>
+<tr><td>化學燒傷</td><td>清潔劑、硫酸、鹽酸、硝酸等強酸強鹼</td></tr>
+<tr><td>電燒傷</td><td>閃電、高壓電</td></tr>
+<tr><td>放射燒傷</td><td>紅外線、紫外線、X射線</td></tr>
+</table>
+
+<h3>2. 燒傷程度分級（重要考點）</h3>
+<table>
+<tr><th>等級</th><th>特徵</th></tr>
+<tr><td><b>第一度</b></td><td>紅、腫、痛，傷及表皮淺層</td></tr>
+<tr><td><b>淺二度</b></td><td>紅、痛、<span class="keypoint">水泡</span>，傷到表皮</td></tr>
+<tr><td><b>深二度</b></td><td>長時間燙傷、燒傷，呈白或紅色，<span class="keypoint">較不痛</span>，皮膚尚柔軟</td></tr>
+<tr><td><b>第三度</b></td><td>皮膚呈白或黑色，<span class="keypoint">乾硬如皮革狀</span>，可能深及皮下脂肪、肌肉或骨骼</td></tr>
+</table>
+
+<h3>3. 燒燙傷處理口訣「沖脫泡蓋送」</h3>
+<table>
+<tr><th>步驟</th><th>內容</th></tr>
+<tr><td><b>沖</b></td><td>清水沖洗<span class="keypoint">至少三十分鐘</span></td></tr>
+<tr><td><b>脫</b></td><td>以<span class="keypoint">剪刀</span>除去束縛衣物（避免硬扯造成二次傷害）</td></tr>
+<tr><td><b>泡</b></td><td>等待送醫前繼續泡水</td></tr>
+<tr><td><b>蓋</b></td><td>蓋上清潔布料或紗布</td></tr>
+<tr><td><b>送</b></td><td>立即送急診緊急處置</td></tr>
+</table>
+
+<h3>4. 輕微燒燙傷處理注意事項</h3>
+<ul>
+<li>解除束縛物，把傷處沖或浸於冷水，直到不痛為止</li>
+<li><span class="keypoint">不可塗油膏、油脂類塗劑</span></li>
+<li>如起水泡，用消毒紗布蓋住，<span class="keypoint">不可刺破水泡</span></li>
+</ul>
+
+<h3>5. 嚴重燒燙傷處理注意事項</h3>
+<ul>
+<li>檢查或維持傷者呼吸道通暢</li>
+<li><span class="keypoint">不可企圖移去傷者的傷處或用冷水沖傷口</span>（大面積嚴重燒傷避免失溫）</li>
+<li>用消毒過的厚紗布保護傷口</li>
+<li>讓患者躺下預防休克</li>
+<li>可將受傷部位墊高，減輕腫脹</li>
+<li>快速送醫</li>
+</ul>
+
+<h3>6. 化學濺觸急救須知（酸鹼類化學藥品濺到皮膚/眼睛）</h3>
+<ul>
+<li><b>最佳方法：</b>60秒內立即使用<span class="keypoint">酸鹼中和噴霧（敵腐靈）</span>噴至濺傷部位（不需沖水），用完整瓶沖洗劑，立刻送醫。</li>
+<li><b>次要方法（無沖洗劑時）：</b>60秒內立即用水大量沖洗濺傷部位<span class="keypoint">15分鐘以上</span>，直到皮膚顏色恢復正常為止，並立刻送醫。</li>
+</ul>
+</section>
+
+<!-- ========== 8 ========== -->
+<section id="s8">
+<h2 class="sec-title">八、中毒處理</h2>
+
+<h3>1. 中毒處理注意事項</h3>
+<ul>
+<li><span class="keypoint">勿任意催吐</span></li>
+<li><span class="keypoint">不可酸鹼中和</span></li>
+<li>皮膚接觸中毒，用清水清洗</li>
+<li>脫除含毒之衣物</li>
+<li>吸入中毒時，將患者置於空氣流通處</li>
+<li>將疑似毒物帶給醫療人員</li>
+</ul>
+
+<h3>2. 中毒緊急處理步驟</h3>
+<p>連絡毒物中心－<span class="keypoint">02-28717121（榮總）</span>或醫療單位，並告知：</p>
+<ul>
+<li>確定患者意識狀態</li>
+<li>毒物名稱</li>
+<li>吞下毒物的量和時間</li>
+<li>估計送醫所需時間</li>
+<li>聽從醫療人員指導</li>
+<li>儘速將病患搬離污染現場</li>
+</ul>
+
+<h3>3. 腐蝕性毒物中毒（眼睛）處理</h3>
+<ul>
+<li>以流動清水沖洗（將眼瞼打開）</li>
+<li><span class="keypoint">自眼角內向外</span>，持續<span class="keypoint">15分鐘以上</span></li>
+<li>至眼科就診</li>
+</ul>
+</section>
+
+<!-- ========== 9 ========== -->
+<section id="s9">
+<h2 class="sec-title">九、火災與滅火</h2>
+
+<h3>1. 燃燒四要素</h3>
+<p>燃燒三要素為：可燃物、助燃物（氧）、熱能（溫度）。燃燒<span class="keypoint">四要素</span>再加上第四項：</p>
+<ol>
+<li>可燃物</li>
+<li>氧（助燃物）</li>
+<li>熱能（溫度）</li>
+<li><span class="keypoint">連鎖反應</span></li>
+</ol>
+
+<h3>2. 滅火的基本法（對應燃燒要件）</h3>
+<table>
+<tr><th>燃燒條件</th><th>滅火方法</th><th>滅火原理</th><th>實例</th></tr>
+<tr><td>可燃物</td><td><span class="keypoint">隔離法</span></td><td>搬離或除去可燃物</td><td>移走木材紙張、設防火巷/牆/門、關閉進料口</td></tr>
+<tr><td>助燃物</td><td><span class="keypoint">窒息法</span></td><td>除去助燃物（降低氧氣濃度）</td><td>鍋蓋覆蓋、泡沫覆蓋油槽、CO2/水蒸氣置換氧氣</td></tr>
+<tr><td>能量（熱能）</td><td><span class="keypoint">冷卻法</span></td><td>減少熱能</td><td>撒水冷卻、釋放高壓二氧化碳（氣體冷卻）</td></tr>
+<tr><td>連鎖反應</td><td><span class="keypoint">抑制法</span></td><td>中斷連鎖反應</td><td>使用乾粉滅火劑等抑制自由基連鎖反應</td></tr>
+</table>
+
+<h3>3. 火災分類（ABCD類，考試最愛考）</h3>
+<table>
+<tr><th>類別</th><th>名稱</th><th>可燃物</th><th>滅火方法</th></tr>
+<tr><td><b>A類</b></td><td>普通火災</td><td>木製品、紙纖維、棉布、橡膠、塑膠等</td><td>水或含水溶液<span class="keypoint">冷卻</span>降溫</td></tr>
+<tr><td><b>B類</b></td><td>油類火災</td><td>石油、可燃性氣體(乙烷、乙炔)、可燃油脂</td><td><span class="keypoint">掩蓋隔離氧氣（窒息）</span></td></tr>
+<tr><td><b>C類</b></td><td>電氣火災</td><td>通電中電器、變壓器、電線、配電盤</td><td><span class="keypoint">不導電滅火劑</span>，宜先截斷電源再依A或B類處理</td></tr>
+<tr><td><b>D類</b></td><td>金屬火災</td><td>活性金屬如鎂、鉀、鋰、鋯、鈦等</td><td><span class="keypoint">特定金屬滅火劑</span>（燃燒溫度甚高）</td></tr>
+</table>
+
+<h3>4. 滅火器種類與適用</h3>
+<table>
+<tr><th>滅火器</th><th>適用火災類別</th></tr>
+<tr><td>二氧化碳滅火器</td><td>B、C類火災</td></tr>
+<tr><td>乾粉滅火器</td><td>B、C類火災</td></tr>
+<tr><td>ABC乾粉滅火器</td><td>A、B、C類火災（最通用）</td></tr>
+</table>
+
+<h3>5. 滅火器操作方法（拉、瞄、壓、掃）</h3>
+<table>
+<tr><th>步驟</th><th>內容</th></tr>
+<tr><td><b>拉</b></td><td>拉開安全插梢</td></tr>
+<tr><td><b>瞄</b></td><td>拉皮管，朝向<span class="keypoint">火源根部</span></td></tr>
+<tr><td><b>壓</b></td><td>用力壓下手壓柄</td></tr>
+<tr><td><b>掃</b></td><td>左右移動掃射</td></tr>
+</table>
+
+<h3>6. 滅火器操作注意事項</h3>
+<ul>
+<li>確認火災類別性質，取用合適滅火器</li>
+<li>室外使用應立於<span class="keypoint">上風處</span>（由煙方向判定）；室內使用應預留逃生方向</li>
+<li>勿朝向濃煙及人噴射</li>
+<li>放射後無法長久保存，建議重新充填藥劑</li>
+<li>滅火後仍需用水澆濕，確認火勢熄滅防止再燃</li>
+</ul>
+
+<h3>7. 火災緊急應變流程</h3>
+<p>通報 → 初期滅火 → 避難逃生</p>
+
+<h3>8. 避難逃生原則</h3>
+<ul>
+<li>市售蓄壓式20型乾粉滅火器放射時間約<span class="keypoint">12至15秒</span>，時間不長</li>
+<li>火勢擴大無法撲滅時，<span class="keypoint">切莫執著搶救財物</span>，應立即避難逃生</li>
+<li>平時應訓練員工熟習避難路線，確保<span class="keypoint">兩方向</span>避難出口位置</li>
+<li>留意避難指標：出口標示燈、避難方向指示燈、緊急照明燈</li>
+<li>避難路線<span class="keypoint">勿堆放雜物</span></li>
+</ul>
+</section>
+
+<!-- ========== 10 ========== -->
+<section id="s10">
+<h2 class="sec-title">十、傷患搬運法</h2>
+<ul>
+<li>單人搬運</li>
+<li>雙人搬運（四手座法）</li>
+<li>四手座疊法</li>
+<li>擔架搬運</li>
+</ul>
+<div class="tip">考試重點：人員受傷（職業災害）處置得宜，可挽救生命、減輕雇主責任。雇主平時應設置<span class="keypoint">急救人員至少一人</span>，並備置足夠急救藥品及器材（依職業安全衛生教育訓練規則、勞工健康保護規則規定）。</div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section id="quiz">
+<h2 class="sec-title">📝 選擇題自我測驗（共50題）</h2>
+<p>點選你認為正確的選項，答案會標示對錯；也可以點「顯示解答」查看詳解。</p>
+<div class="controls">
+  <button class="alt" onclick="showAllAnswers()">顯示全部解答</button>
+  <button onclick="resetQuiz()">重新作答</button>
+</div>
+<div class="score-board" id="scoreBoard">目前作答進度：0 / 50</div>
+
+<div id="quizContainer"></div>
+
+</section>
+
+</div>
+
+<footer>
+  依 勞動部勞動及職業安全衛生研究所「緊急事故應變處理(含急救常識)」講義整理製作，僅供 2026/8/23 丁種職業安全衛生業務主管考試複習使用。
+</footer>
+
+<script>
+const questions = [
+{q:"急救的定義是指在下列何種情況下給予傷患立即救護？",opts:["醫院治療後","緊急醫療救護人員未達現場或送至醫院治療前","病患出院返家後","警察到場後"],ans:1,exp:"急救是在緊急醫療救護人員未達現場或送至醫院治療前，給予立即的救護。"},
+{q:"下列何者不屬於急救的目的？",opts:["挽救生命","防止傷勢或病情惡化","增加醫療費用","促進康復"],ans:2,exp:"急救目的為挽救生命、防止傷勢惡化、促進康復、及早送醫增進醫療效果。"},
+{q:"依民法第150條規定，因避免自己或他人生命、身體、自由或財產上急迫之危險所為之行為，其法律效果為何？",opts:["需負全部賠償責任","不負損害賠償之責","僅負一半賠償責任","視情節輕重而定"],ans:1,exp:"民法第150條：不負損害賠償之責。"},
+{q:"依刑法第24條規定，因避免緊急危難而出於不得已之行為，其效果為何？",opts:["加重其刑","減輕其刑","不罰","與故意犯同罪"],ans:2,exp:"刑法第24條：不罰。"},
+{q:"依醫師法第28條規定，臨時施行急救者：",opts:["需醫師執照始可為之","不罰","需事先報備衛生局","僅限醫療院所內施行"],ans:1,exp:"醫師法第28條：臨時施行急救者，不罰。"},
+{q:"非醫護人員基於必要使用AED等緊急救護設備救人「除罪化」，是依據下列何項法規？",opts:["民法第150條","刑法第24條","醫師法第28條","緊急醫療救護法第14條之2"],ans:3,exp:"緊急醫療救護法第14條之2 明定非醫護人員使用AED救人除罪化。"},
+{q:"心跳呼吸停止後，多久內若未處理，將因腦部缺氧而受損？",opts:["1分鐘","3分鐘","30分鐘","1小時"],ans:1,exp:"短短3分鐘內就會因腦部缺氧而受損。"},
+{q:"心跳呼吸停止超過多久，可能導致患者腦死？",opts:["3分鐘","5分鐘","10分鐘","30分鐘"],ans:2,exp:"超過10分鐘將可能導致患者腦死，心肺功能隨之喪失。"},
+{q:"心跳停止後，若未適時處置，每過1分鐘患者存活率約下降多少？",opts:["1%~3%","7%~10%","20%~30%","50%以上"],ans:1,exp:"每過1分鐘存活率下降7%到10%，適時處置則下降幅度減半。"},
+{q:"「3分鐘內的貴人」最可能是下列何者？",opts:["救護技術員","醫護人員","一般民眾(家人、朋友、鄰居或路人)","消防局長官"],ans:2,exp:"救護技術員與醫護人員通常無法在3分鐘內到場，一般民眾才是關鍵的第一線救援者。"},
+{q:"AHA ECC成人生存之鏈的第一環為何？",opts:["儘早CPR","進行快速去顫","立即確認心臟停止並啟動緊急應變系統","整合心臟停止後照護"],ans:2,exp:"生存之鏈第一步：立即確認心臟停止，並啟動緊急應變系統，儘早求救。"},
+{q:"生存之鏈中，強調CPR應優先施作下列何者？",opts:["人工呼吸","胸部按壓","打119","給予AED電擊"],ans:1,exp:"儘早CPR，並強調先作胸部按壓。"},
+{q:"心臟自己正常跳動時，血流輸送效果約為多少？",opts:["0%","20-25%","50%","100%"],ans:3,exp:"心臟自己跳→100%。"},
+{q:"施行CPR時，血流輸送效果約為多少，即足夠腦部使用？",opts:["0%","20-25%","50-60%","100%"],ans:1,exp:"CPR→20-25%已足夠腦袋瓜使用。"},
+{q:"心臟停止跳動時，血流輸送效果為多少？",opts:["0%","20-25%","50%","100%"],ans:0,exp:"心臟不跳→0%。"},
+{q:"2010年版CPR將施救順序由A-B-C改為下列何者？",opts:["B-C-A","叫叫C-A-B","C-B-A","A-C-B"],ans:1,exp:"2010年版CPR改為「叫叫C-A-B」，先開始胸部按壓。"},
+{q:"成人CPR胸部按壓速率應為每分鐘多少次？",opts:["至少60次","至少80次","至少100次(100-120次/分)","至少150次"],ans:2,exp:"按壓速率至少每分鐘100次(100-120次/分)。"},
+{q:"成人CPR胸部按壓深度應為多少？",opts:["至少1公分","至少3公分","至少5公分","至少10公分"],ans:2,exp:"成人按壓深度至少約5公分(4-5cm)。"},
+{q:"CPR胸部按壓與人工呼吸的比率為何？",opts:["15:1","30:2","5:1","10:2"],ans:1,exp:"按壓和呼吸應以30次按壓後進行2次呼吸的比率(30:2)。"},
+{q:"CPR中「叫」的第一步驟主要動作為何？",opts:["打119","評估意識、呼吸","貼AED電擊片","進行胸部按壓"],ans:1,exp:"第一個「叫」：雙手拍打肩膀、喊叫、確認昏迷與呼吸狀況。"},
+{q:"評估病患意識與呼吸的檢查時間，不可超過多少秒？",opts:["5秒","10秒","20秒","30秒"],ans:1,exp:"檢查時間不可超過10秒。"},
+{q:"CPR中「C」代表下列何者？",opts:["Chest compression 胸部按壓","Call 呼叫","Care 照護","Check 檢查"],ans:0,exp:"C(circulation/胸部按壓)：施行心外按摩。"},
+{q:"成人胸部按壓位置應在何處？",opts:["劍突處","兩乳頭連線中點的胸骨上","肋骨下緣","鎖骨中央"],ans:1,exp:"按摩位置：兩乳頭間胸骨上(胸骨下半段)，以掌根對準兩乳頭連線中點。"},
+{q:"成人心外按摩時，雙手掌根重疊置於胸骨上，手肘應如何？",opts:["彎曲45度","打直，垂直下壓","放鬆下垂","交叉環抱"],ans:1,exp:"手肘打直，以身體重量垂直下壓，以髖關節為支點。"},
+{q:"胸部按壓放鬆時，掌根應如何？",opts:["可離開胸骨休息","不可離開胸骨","可用力往上抬","可移動至別處"],ans:1,exp:"放鬆時不可用力，掌根不可離開胸骨。"},
+{q:"小兒(兒童)胸部按壓位置為何？",opts:["胸骨與乳頭連線交會處","兩乳頭連線中線下","劍突處","鎖骨下方"],ans:0,exp:"小兒：胸骨與乳頭連線交會處。"},
+{q:"嬰兒胸部按壓位置為何？",opts:["胸骨與乳頭連線交會處","兩乳頭連線中線下","肋骨處","頸部下方"],ans:1,exp:"嬰兒：兩乳頭連線中線下。"},
+{q:"CPR的「A」代表恢復呼吸道通暢，其操作要領為何？",opts:["壓額抬下巴","捏鼻吹氣","胸部按壓","電擊除顫"],ans:0,exp:"A(airway)：保持呼吸道通暢，打開呼吸道、清除口腔異物，動作為壓額抬下巴。"},
+{q:"CPR人工呼吸時，應以拇指與食指做何動作？",opts:["按壓胸骨","捏住鼻子","壓額頭","抬下巴"],ans:1,exp:"人工呼吸：拇指與食指捏住鼻子，口對口或口對面罩吹氣。"},
+{q:"CPR人工呼吸時，每次應平穩吹氣約多久？",opts:["約2秒鐘","約10秒鐘","約30秒鐘","約1分鐘"],ans:0,exp:"平穩吹氣約2秒鐘，以看到胸部起伏為原則。"},
+{q:"CPR進行約一分鐘（四個週期）後，若患者仍無循環徵象，應如何處理？",opts:["停止CPR","繼續CPR","改做人工呼吸即可","等待救護車即可不需再處理"],ans:1,exp:"再評估生命徵象：沒有循環徵象則繼續CPR。"},
+{q:"下列何者不是CPR何時停止的正確時機？",opts:["119救護車人員趕到時","病人恢復生命徵象時","AED正在判讀是否該電擊時","急救者手痠想休息時"],ans:3,exp:"千萬不要隨便停止CPR，僅在救護人員接手、病人恢復生命徵象、AED判讀時可暫停。"},
+{q:"下列何者為CPR常見的錯誤？",opts:["胸部按壓位置正確","按壓深度足夠5公分","胸部按壓速率過慢或過快","按壓後完全回彈"],ans:2,exp:"CPR常見錯誤包含按壓速率過慢或過快、位置/深度/方式不對、氣吹不進去等。"},
+{q:"AED的中文全稱為何？",opts:["自動體外去顫器","人工呼吸輔助器","心律調節器","血壓監測儀"],ans:0,exp:"AED = Automated External Defibrillator，自動體外去顫器。"},
+{q:"AED的主要功能為何？",opts:["量測血壓","偵測心律並對心搏異常患者施以電擊","進行胸部X光攝影","替代人工呼吸"],ans:1,exp:"AED能自動偵測患者心律，分析是否可用電擊治療，並施以電擊使心臟恢復正常頻率。"},
+{q:"AED操作時，右側電擊片應貼於何處？",opts:["左乳頭左下外側","胸骨右上緣、鎖骨下方","肚臍上方","背部中央"],ans:1,exp:"右側電擊片：置於胸骨右上緣，鎖骨下方。"},
+{q:"AED操作時，左側電擊片應貼於何處？",opts:["胸骨右上緣","左乳頭左下外側","右肩胛骨","頸部左側"],ans:1,exp:"左側電擊片：置於左乳頭左下外側，距左腋窩下約10-15公分。"},
+{q:"AED分析心律或電擊時，下列敘述何者正確？",opts:["急救者可扶住患者頭部","任何人均不可接觸或碰觸病人","可同時進行心外按摩","僅需離開1秒鐘"],ans:1,exp:"分析心律及電擊時均不可接觸或碰觸病人，須確認無人接觸後才按下電擊鈕。"},
+{q:"研究顯示3至5分鐘內施予CPR及電擊，可使救活率提升至約多少？",opts:["10%~20%","30%~40%","49%~75%","90%以上"],ans:2,exp:"研究顯示3至5分施給CPR及電擊可使救活率提升至49%~75%。"},
+{q:"119報案要領中「人事時地物」，下列何者對應「事」？",opts:["幾個人受傷","車禍、昏倒等事故類型","事故發生多久了","門牌地址"],ans:1,exp:"事：車禍、昏倒、房子冒煙、跳水、跳樓等。"},
+{q:"撥打119報案後，正確的作法是？",opts:["說完地址立即掛電話","切勿掛電話，聽從指導","留言後掛斷即可","僅需說明姓名"],ans:1,exp:"切勿掛電話，接線員將持續在電話中指導您。"},
+{q:"燒燙傷程度中，出現水泡、紅、痛，傷到表皮，屬於下列何種等級？",opts:["第一度","淺二度","深二度","第三度"],ans:1,exp:"淺二度：紅、痛、水泡，傷到表皮。"},
+{q:"燒燙傷程度中，皮膚呈白或黑色、乾硬如皮革狀，可能深及皮下脂肪、肌肉或骨骼，屬於下列何種等級？",opts:["第一度","淺二度","深二度","第三度"],ans:3,exp:"第三度：皮膚呈白或黑色，乾硬如皮革狀。"},
+{q:"燒燙傷處理口訣「沖脫泡蓋送」中，「沖」的正確做法為何？",opts:["用清水沖洗至少三十分鐘","用熱水沖洗五分鐘","不需沖水","用酒精消毒沖洗"],ans:0,exp:"沖：清水沖洗至少三十分鐘。"},
+{q:"燒燙傷處理口訣「沖脫泡蓋送」中，「脫」的正確做法為何？",opts:["用手直接硬拉除去衣物","以剪刀除去束縛衣物","不需脫除衣物","用力撕除衣物"],ans:1,exp:"脫：以剪刀除去束縛衣物，避免二次傷害。"},
+{q:"輕微燒燙傷處理時，下列何者為錯誤做法？",opts:["把傷處浸泡冷水直到不痛","塗抹油膏或油脂類塗劑","起水泡用消毒紗布蓋住","不可刺破水泡"],ans:1,exp:"輕微燒燙傷不可塗油膏、油脂類塗劑。"},
+{q:"嚴重燒燙傷處理時，下列敘述何者正確？",opts:["用冷水沖傷口降溫","企圖移去傷者的傷處衣物","讓患者躺下預防休克","立刻餵食補充體力"],ans:2,exp:"嚴重燒燙傷應讓患者躺下預防休克，不可用冷水沖傷口或移去傷處衣物(避免失溫及二次傷害)。"},
+{q:"酸鹼類化學藥品濺觸皮膚時，最佳處置方法為何？",opts:["60秒內使用酸鹼中和噴霧(敵腐靈)噴至患部","立即塗抹油膏","以熱水沖洗","任其自然乾燥"],ans:0,exp:"最佳處置：60秒內立即使用酸鹼中和噴霧(敵腐靈)，不需沖水，並立刻送醫。"},
+{q:"酸鹼類化學藥品濺觸皮膚，若無沖洗劑時，次要方法應以清水沖洗濺傷部位多久以上？",opts:["1分鐘","5分鐘","15分鐘","1小時"],ans:2,exp:"次要方法：用水大量沖洗濺傷部位15分鐘以上，直到皮膚顏色恢復正常為止。"},
+{q:"中毒處理注意事項中，下列何者正確？",opts:["盡量催吐","可用酸鹼中和","皮膚接觸中毒應用清水清洗","不需脫除含毒衣物"],ans:2,exp:"中毒處理：勿任意催吐、不可酸鹼中和、皮膚接觸中毒用清水清洗、脫除含毒衣物。"},
+{q:"腐蝕性毒物中毒(眼睛)，應以流動清水沖洗，方向應如何？並持續多久？",opts:["自眼角外向內，5分鐘","自眼角內向外，15分鐘以上","閉眼靜置10分鐘","用棉花棒擦拭即可"],ans:1,exp:"自眼角內向外沖洗，持續15分鐘以上，並至眼科就診。"},
+{q:"燃燒四要素不包含下列何者？",opts:["可燃物","助燃物(氧)","熱能(溫度)","水分"],ans:3,exp:"燃燒四要素：可燃物、氧(助燃物)、熱能(溫度)、連鎖反應。"},
+{q:"下列何者屬於B類火災？",opts:["木製品、紙張火災","石油、可燃性氣體火災","電器、變壓器火災","鎂、鉀等活性金屬火災"],ans:1,exp:"B類油類火災：石油、乙烷、乙炔等可燃性液體或氣體。"},
+{q:"下列何者屬於C類電氣火災正確的滅火觀念？",opts:["直接大量潑水滅火","宜先截斷電源再視情況依A或B類處理","一律使用金屬滅火劑","不可使用任何滅火器"],ans:1,exp:"電氣火災有時可用不導電滅火劑控制火勢，但應先截斷電源再依A或B類處理較妥當。"},
+{q:"活性金屬如鎂、鉀、鋰、鋯、鈦等所引起的火災屬於下列何種類別？",opts:["A類火災","B類火災","C類火災","D類火災"],ans:3,exp:"D類金屬火災：活性金屬燃燒引起，須用特定滅火劑。"},
+{q:"ABC乾粉滅火器適用於下列哪些類別火災？",opts:["僅A類","僅B、C類","A、B、C類","僅D類"],ans:2,exp:"ABC乾粉滅火器適用A、B、C類火災，二氧化碳與乾粉滅火器則適用B、C類。"},
+{q:"滅火器操作口訣「拉瞄壓掃」，其中「瞄」的動作為何？",opts:["拉開安全插梢","朝向火源根部","用力壓下手壓柄","左右移動掃射"],ans:1,exp:"瞄：拉皮管，朝向火源根部。"},
+{q:"使用滅火器於室外滅火時，應站於何處？",opts:["下風處","上風處","任意位置皆可","背對火源"],ans:1,exp:"於室外使用應立於上風處(由煙方向判定)，避免吸入濃煙。"},
+{q:"滅火後，下列何者為正確的後續處理？",opts:["確認火勢熄滅即可離開","仍需用水澆濕，防止再燃","立即丟棄滅火器","不需再檢查"],ans:1,exp:"滅火後仍需用水澆濕，確認火勢熄滅防止再燃。"},
+{q:"當火勢擴大無法撲滅時，應如何處置？",opts:["繼續搶救財物","立即避難逃生","等待滅火器充填後再滅火","躲在角落等待"],ans:1,exp:"萬一火勢擴大無法撲滅，切莫執著於搶救財物，應立即進行避難逃生。"},
+{q:"火災緊急應變措施的正確步驟為何？",opts:["避難逃生→通報→初期滅火","通報→初期滅火→避難逃生","初期滅火→避難逃生→通報","通報→避難逃生→初期滅火"],ans:1,exp:"火災緊急應變措施步驟：通報→初期滅火→避難逃生。"},
+{q:"依消防法規定，避難路線規劃應確保幾個方向的避難出口位置？",opts:["1個方向","2個方向","3個方向","不需規劃"],ans:1,exp:"平時應訓練員工熟習避難路線，確保兩方向避難出口位置。"},
+];
+
+const container = document.getElementById('quizContainer');
+let answered = new Array(questions.length).fill(false);
+
+function updateScoreBoard(){
+  const done = answered.filter(a=>a).length;
+  document.getElementById('scoreBoard').innerText = `目前作答進度：${done} / ${questions.length}`;
+}
+
+questions.forEach((item, idx)=>{
+  const qDiv = document.createElement('div');
+  qDiv.className = 'q';
+  qDiv.id = 'q'+idx;
+
+  const title = document.createElement('div');
+  title.innerHTML = `<span class="q-num">第 ${idx+1} 題．</span>${item.q}`;
+  qDiv.appendChild(title);
+
+  const ul = document.createElement('ul');
+  ul.className = 'options';
+  const letters = ['A','B','C','D'];
+  item.opts.forEach((opt, oIdx)=>{
+    const li = document.createElement('li');
+    li.innerText = `${letters[oIdx]}. ${opt}`;
+    li.onclick = ()=>selectOption(idx, oIdx);
+    ul.appendChild(li);
+  });
+  qDiv.appendChild(ul);
+
+  const btn = document.createElement('button');
+  btn.className = 'toggle-btn';
+  btn.innerText = '顯示解答';
+  btn.onclick = ()=>toggleAnswer(idx);
+  qDiv.appendChild(btn);
+
+  const answerBox = document.createElement('div');
+  answerBox.className = 'answer-box';
+  answerBox.id = 'ans'+idx;
+  answerBox.innerHTML = `<b>正解：${letters[item.ans]}. ${item.opts[item.ans]}</b><br>詳解：${item.exp}`;
+  qDiv.appendChild(answerBox);
+
+  container.appendChild(qDiv);
+});
+
+function selectOption(qIdx, oIdx){
+  const item = questions[qIdx];
+  const lis = document.querySelectorAll(`#q${qIdx} .options li`);
+  lis.forEach(li=>{li.classList.remove('correct-mark','wrong-mark');});
+  if(oIdx === item.ans){
+    lis[oIdx].classList.add('correct-mark');
+  } else {
+    lis[oIdx].classList.add('wrong-mark');
+    lis[item.ans].classList.add('correct-mark');
+  }
+  if(!answered[qIdx]){
+    answered[qIdx] = true;
+    updateScoreBoard();
+  }
+  document.getElementById('ans'+qIdx).classList.add('show');
+}
+
+function toggleAnswer(qIdx){
+  const box = document.getElementById('ans'+qIdx);
+  box.classList.toggle('show');
+}
+
+function showAllAnswers(){
+  questions.forEach((item, idx)=>{
+    document.getElementById('ans'+idx).classList.add('show');
+  });
+}
+
+function resetQuiz(){
+  questions.forEach((item, idx)=>{
+    const lis = document.querySelectorAll(`#q${idx} .options li`);
+    lis.forEach(li=>li.classList.remove('correct-mark','wrong-mark'));
+    document.getElementById('ans'+idx).classList.remove('show');
+  });
+  answered = new Array(questions.length).fill(false);
+  updateScoreBoard();
+}
+
+updateScoreBoard();
+</script>
+
+</body>
+</html>
