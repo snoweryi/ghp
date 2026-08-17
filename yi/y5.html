@@ -75,19 +75,19 @@
   header.hero p.sub{
     color:#C9D2DE;
     font-size: 22px;
-    max-width:640px;
+    max-width:1900px;
     margin:0 0 28px;
 	
   }
   .stat-bar{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
     gap:1px;
     background:rgba(255,255,255,.14);
     border:1px solid rgba(255,255,255,.16);
     border-radius:10px;
     overflow:hidden;
-    max-width:760px;
+    max-width:1900px;
   }
   .stat{
     background:rgba(20,30,48,.55);
@@ -125,13 +125,15 @@
     position:sticky; top:0; z-index:50;
     background:rgba(247,246,241,.92);
     backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
+    border-bottom:2px solid var(--line);
     padding:0 24px;
+	
   }
   .tabs-inner{
-    max-width:960px;margin:0 auto;
+    max-width:1900px;margin:0 auto;
     display:flex; gap:4px; overflow-x:auto;
     padding:10px 0;
+	
   }
   .tabs-inner a{
     white-space:nowrap;
@@ -140,12 +142,12 @@
     text-decoration:none;
     padding:8px 14px;
     border-radius:100px;
-    border:1px solid transparent;
+    border:1px solid gray;
   }
   .tabs-inner a:hover{border-color:var(--line); color:var(--navy);}
 
   /* ===== Layout ===== */
-  main{max-width:960px;margin:0 auto;padding:40px 24px 100px;}
+  main{max-width:1900px;margin:0 auto;padding:40px 24px 100px;}
   section.module{margin-bottom:56px; scroll-margin-top:64px;}
   .module-head{
     display:flex; align-items:center; gap:16px;
@@ -258,7 +260,7 @@
   .quiz-q .opt.wrong{background:var(--red-bg);border-color:var(--red);}
   .quiz-q .explain{display:none;margin-top:8px;font-size: 22px;color:var(--ink-soft);padding-top:8px;border-top:1px dashed var(--line);}
   .quiz-score{
-    position:sticky; bottom:16px; margin:20px auto 0; max-width:300px;
+    position:sticky; bottom:16px; margin:20px auto 0; max-width:1900px;
     background:var(--navy); color:#F6D98A; text-align:center;
     padding:12px 20px; border-radius:100px; font-weight:700; font-family:"JetBrains Mono",monospace;
     box-shadow:0 6px 20px rgba(0,0,0,.15);
@@ -344,12 +346,12 @@ a.badge3 {
 	<div><a href="https://snoweryi.github.io/ghp/yi/y2.html" class="badge1">工作場所危害辨識及預防</a></div>
 	<div><a href="https://snoweryi.github.io/ghp/yi/y3.html" class="badge1">安全衛生管理實務</a></div>
 	<div><a href="https://snoweryi.github.io/ghp/yi/y4.html" class="badge1">緊急事故應變處理</a></div>
-	<div><a href="https://snoweryi.github.io/ghp/yi/y5.html" class="badge1">總整理</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y5.html" class="badge2">總整理</a></div>
 	
 	<div><a href="https://snoweryi.github.io/ghp/yi/y1_2.html" class="badge1">1</a></div>
 	<div><a href="https://snoweryi.github.io/ghp/yi/y2_2.html" class="badge1">2</a></div>
 	<div><a href="https://snoweryi.github.io/ghp/yi/y3_2.html" class="badge1">3</a></div>
-	<div><a href="https://snoweryi.github.io/ghp/yi/y4_2.html" class="badge2">4</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y4_2.html" class="badge1">4</a></div>
 	
 </div> 
 
@@ -359,26 +361,26 @@ a.badge3 {
     <h1>命題委員視角必勝筆記<br>給完全不懂的你，一次讀懂、記得住</h1>
     <p class="sub">依「職業安全衛生教育訓練規則」附表四之丁種課程架構整理：法規概要、安全衛生管理實務、危害辨識預防、緊急事故應變處理，並補上 2025–2026 最新修法時事。每個重點都附上「命題委員視角」與「記憶技巧」。</p>
     <div class="stat-bar">
-      <div class="stat"><b>6 小時</b><span>丁種訓練總時數</span></div>
-      <div class="stat"><b>25 題</b><span>結訓測驗單選題</span></div>
-      <div class="stat"><b>60 分</b><span>及格門檻（100分制）</span></div>
-      <div class="stat"><b>不倒扣</b><span>寧可猜也不要空白</span></div>
-      <div class="stat"><b>50 分鐘</b><span>測驗時間（身障 60分）</span></div>
+      <div class="stat"><b style="color:red;">6 小時</b><span>丁種訓練總時數</span></div>
+      <div class="stat"><b style="color:red;">25 題</b><span>結訓測驗單選題</span></div>
+      <div class="stat"><b style="color:red;">60 分</b><span>及格門檻（100分制）</span></div>
+      <div class="stat"><b style="color:red;">不倒扣</b><span>寧可猜也不要空白</span></div>
+      <div class="stat"><b style="color:red;">50 分鐘</b><span>測驗時間（身障 60分）</span></div>
     </div>
   </div>
 </header>
 
 <nav class="tabs">
   <div class="tabs-inner">
-    <a href="#howto">📖 如何用這份筆記</a>
-    <a href="#m1">1️⃣ 法規概要</a>
-    <a href="#m2">2️⃣ 管理實務</a>
-    <a href="#m3">3️⃣ 危害辨識預防</a>
-    <a href="#m4">4️⃣ 緊急應變</a>
-    <a href="#m5">5️⃣ 最新時事</a>
-    <a href="#card">🗂 速記卡總覽</a>
-    <a href="#quiz">✏️ 自我測驗</a>
-    <a href="#plan">🗓 讀書計畫</a>
+    <a href="#howto">HOW</a>
+    <a href="#m1">法規</a>
+    <a href="#m2">實務</a>
+    <a href="#m3">危害辨識預防</a>
+    <a href="#m4">緊急應變</a>
+    <a href="#m5">最新時事</a>
+    <a href="#card">速記卡</a>
+    <a href="#quiz">測驗</a>
+    <a href="#plan">讀書計畫</a>
   </div>
 </nav>
 
@@ -389,14 +391,14 @@ a.badge3 {
       <h3>🎯 這份筆記的邏輯 — 給第一次讀職安法規的人</h3>
       <p>丁種測驗題目雖然只有 25 題、單選、不倒扣，但因為訓練時數只有 6 小時，內容濃縮，「數字」與「定義」特別容易混淆。以下是最有效的讀法：</p>
       <ol>
-        <li><b>先讀「命題委員視角」框</b>（<span class="stamp small">重點</span> 紅色標記），這是最常被考的地方，優先記。</li>
-        <li><b>再讀「記憶技巧」框</b>（黃色虛線），用口訣、故事、圖像取代死背。</li>
+        <li><b style="color:red;">先讀「命題委員視角」框</b>（<span class="stamp small">重點</span> 紅色標記），這是最常被考的地方，優先記。</li>
+        <li><b style="color:red;">再讀「記憶技巧」框</b>（黃色虛線），用口訣、故事、圖像取代死背。</li>
         <li>看不懂條文本身沒關係，先記住「結論」與「數字」，法條原文只是輔助理解。</li>
         <li>最後用第 <a href="#quiz">✏️ 自我測驗</a> 檢查自己是否真的記住，而不是「看起來眼熟」。</li>
       </ol>
       <div class="box box-tip">
         <div class="box-title">💡 最有效的記憶方式（人腦科學小提醒）</div>
-        <p>單純重複閱讀效果最差。真正有效的三個方法：<b>①口訣化</b>（把長條文壓縮成 4–6 字）、<b>②主動測驗</b>（蓋起來自己講一次，而不是看答案）、<b>③間隔複習</b>（讀完隔天再考一次自己，比一次讀 5 遍有效）。這份筆記已經幫你把①做好了，②③要靠你自己執行 —— 建議睡前 10 分鐘只做<a href="#quiz">自我測驗</a>，不要重讀全文。</p>
+        <p>單純重複閱讀效果最差。真正有效的三個方法：<b style="color:red;">①口訣化</b>（把長條文壓縮成 4–6 字）、<b style="color:red;">②主動測驗</b>（蓋起來自己講一次，而不是看答案）、<b style="color:red;">③間隔複習</b>（讀完隔天再考一次自己，比一次讀 5 遍有效）。這份筆記已經幫你把①做好了，②③要靠你自己執行 —— 建議睡前 10 分鐘只做<a href="#quiz">自我測驗</a>，不要重讀全文。</p>
       </div>
     </div>
   </section>
@@ -417,14 +419,14 @@ a.badge3 {
       <table>
         <tr><th>項目</th><th>內容</th></tr>
         <tr><td>立法目的</td><td>防止職業災害，保障工作者安全與健康（<span class="kw">職安法§1</span>）</td></tr>
-        <tr><td>中央主管機關</td><td><b>勞動部</b></td></tr>
+        <tr><td>中央主管機關</td><td><b style="color:red;">勞動部</b></td></tr>
         <tr><td>地方主管機關</td><td>直轄市 / 縣（市）政府</td></tr>
         <tr><td>適用範圍</td><td>原則上各業適用；特殊性質行業可由中央主管機關另定必要之安全衛生設施標準</td></tr>
-        <tr><td>丁種適用對象</td><td>職安管理辦法第2、3、4條所定<b>第二類或第三類事業</b>，且勞工人數在<b>5人以下</b>之雇主或其代理人（原本應設丙種業務主管者，改由雇主自行受訓）</td></tr>
+        <tr><td>丁種適用對象</td><td>職安管理辦法第2、3、4條所定<b style="color:red;">第二類或第三類事業</b>，且勞工人數在<b style="color:red;">5人以下</b>之雇主或其代理人（原本應設丙種業務主管者，改由雇主自行受訓）</td></tr>
       </table>
       <div class="box box-exam">
         <div class="box-title"><span class="stamp small">重點</span> 命題委員視角</div>
-        <p>「誰是中央主管機關」「第二類/第三類事業舉例」是送分題卻常粗心答錯。<b>第二類（中度風險）</b>：飲食業、汽車修理業等；<b>第三類（低度風險）</b>：金融保險業、廣播電視節目供應業等。考題常直接問「下列何者非丁種業務主管適用對象」。</p>
+        <p>「誰是中央主管機關」「第二類/第三類事業舉例」是送分題卻常粗心答錯。<b style="color:red;">第二類（中度風險）</b>：飲食業、汽車修理業等；<b style="color:red;">第三類（低度風險）</b>：金融保險業、廣播電視節目供應業等。考題常直接問「下列何者非丁種業務主管適用對象」。</p>
       </div>
     </div>
 
@@ -433,16 +435,16 @@ a.badge3 {
       <h4>① 必要安全衛生設備與措施（職安法§6第1項）— 14 款危害防止</h4>
       <p>可歸為三大類記憶：</p>
       <ul>
-        <li><b>物的因素</b>：機械設備、爆炸發火物、電熱能、採掘搬運、墜落飛落崩塌、高壓氣體、有害物質、輻射高低溫噪音振動異壓、通道地板階梯、通風採光照明</li>
-        <li><b>環境因素</b>：廢氣廢液殘渣、水患風災火災、動植物微生物</li>
-        <li><b>作業因素</b>：監視儀表精密作業</li>
+        <li><b style="color:red;">物的因素</b>：機械設備、爆炸發火物、電熱能、採掘搬運、墜落飛落崩塌、高壓氣體、有害物質、輻射高低溫噪音振動異壓、通道地板階梯、通風採光照明</li>
+        <li><b style="color:red;">環境因素</b>：廢氣廢液殘渣、水患風災火災、動植物微生物</li>
+        <li><b style="color:red;">作業因素</b>：監視儀表精密作業</li>
       </ul>
       <h4>② 應妥為規劃之安全衛生措施（職安法§6第2項）— 這是近年最愛考的 4 款</h4>
       <table>
         <tr><th>款次</th><th>內容</th><th>白話理解</th></tr>
         <tr><td>一</td><td>重複性作業促發肌肉骨骼疾病之預防</td><td>搬運、久站久坐、反覆動作的傷害預防</td></tr>
         <tr><td>二</td><td>輪班、夜間工作、長時間工作等異常工作負荷促發疾病之預防</td><td>過勞預防</td></tr>
-        <tr><td>三</td><td>執行職務因他人行為遭受身體或精神不法侵害之預防</td><td><b>職場暴力／霸凌預防</b>，並建立申訴、調查及處理程序</td></tr>
+        <tr><td>三</td><td>執行職務因他人行為遭受身體或精神不法侵害之預防</td><td><b style="color:red;">職場暴力／霸凌預防</b>，並建立申訴、調查及處理程序</td></tr>
         <tr><td>四</td><td>避難、急救、休息或其他保護勞工身心健康之事項</td><td>基本保護措施</td></tr>
       </table>
       <div class="box box-exam">
@@ -451,15 +453,15 @@ a.badge3 {
       </div>
       <div class="box box-memory">
         <div class="box-title">🧠 記憶技巧</div>
-        <p>四款口訣：<b>「肌‧勞‧霸‧護」</b>（肌肉骨骼、過勞、霸凌、其他保護）。想像一個上班族因為<b>肌</b>肉痠痛、過度<b>勞</b>累、被<b>霸</b>凌，公司要提供休息室<b>護</b>理他。</p>
+        <p>四款口訣：<b style="color:red;">「肌‧勞‧霸‧護」</b>（肌肉骨骼、過勞、霸凌、其他保護）。想像一個上班族因為<b style="color:red;">肌</b>肉痠痛、過度<b style="color:red;">勞</b>累、被<b style="color:red;">霸</b>凌，公司要提供休息室<b style="color:red;">護</b>理他。</p>
       </div>
 
       <h4>③ 停止作業權（職安法§18）</h4>
       <p>工作場所有立即發生危險之虞時：</p>
       <ul>
-        <li>雇主或現場負責人：<b>應立即令停止作業</b>，使勞工退避至安全場所。</li>
-        <li>勞工本人：發現有立即危險，得<b>自行停止作業並退避</b>，且應立即向直屬主管報告。</li>
-        <li>雇主<b>不得</b>因此對該勞工解僱、調職、扣薪或其他不利處分（除非證明勞工濫用此權利）。</li>
+        <li>雇主或現場負責人：<b style="color:red;">應立即令停止作業</b>，使勞工退避至安全場所。</li>
+        <li>勞工本人：發現有立即危險，得<b style="color:red;">自行停止作業並退避</b>，且應立即向直屬主管報告。</li>
+        <li>雇主<b style="color:red;">不得</b>因此對該勞工解僱、調職、扣薪或其他不利處分（除非證明勞工濫用此權利）。</li>
       </ul>
 
       <h4>④ 安全衛生教育訓練義務（職安法§32）</h4>
@@ -470,13 +472,13 @@ a.badge3 {
       <ol>
         <li>發生死亡災害</li>
         <li>罹災人數在 <b class="num">3人</b> 以上</li>
-        <li>罹災人數在 <b class="num">1人</b> 以上，且需<b>住院治療</b></li>
+        <li>罹災人數在 <b class="num">1人</b> 以上，且需<b style="color:red;">住院治療</b></li>
         <li>其他經中央主管機關指定公告之災害</li>
       </ol>
-      <p>並且：除必要之急救、搶救外，<b>非經司法機關或勞動檢查機構許可，不得移動或破壞現場</b>。</p>
+      <p>並且：除必要之急救、搶救外，<b style="color:red;">非經司法機關或勞動檢查機構許可，不得移動或破壞現場</b>。</p>
       <div class="box box-memory">
         <div class="box-title">🧠 記憶技巧</div>
-        <p>「8小時內通報」口訣：<b>「死、三、住、公告」</b>（死亡、三人、住院、其他公告），四個情況都用<b>8</b>小時記憶——想像成「一個上班日的一半（早班8小時）內一定要通報」。現場「不能動」則想成命案現場影集畫面：黃色封鎖線拉起來，誰都不能碰。</p>
+        <p>「8小時內通報」口訣：<b style="color:red;">「死、三、住、公告」</b>（死亡、三人、住院、其他公告），四個情況都用<b style="color:red;">8</b>小時記憶——想像成「一個上班日的一半（早班8小時）內一定要通報」。現場「不能動」則想成命案現場影集畫面：黃色封鎖線拉起來，誰都不能碰。</p>
       </div>
     </div>
   </section>
@@ -496,14 +498,14 @@ a.badge3 {
       <h3>安全衛生管理的核心循環：PDCA</h3>
       <table>
         <tr><th>階段</th><th>內容</th></tr>
-        <tr><td><b>Plan 規劃</b></td><td>危害辨識、風險評估、訂定目標與計畫</td></tr>
-        <tr><td><b>Do 執行</b></td><td>落實教育訓練、提供防護具、實施管制</td></tr>
-        <tr><td><b>Check 查核</b></td><td>自動檢查、稽核、事故調查</td></tr>
-        <tr><td><b>Act 改善</b></td><td>檢討缺失、持續改善（管理階層審查）</td></tr>
+        <tr><td><b style="color:red;">Plan 規劃</b></td><td>危害辨識、風險評估、訂定目標與計畫</td></tr>
+        <tr><td><b style="color:red;">Do 執行</b></td><td>落實教育訓練、提供防護具、實施管制</td></tr>
+        <tr><td><b style="color:red;">Check 查核</b></td><td>自動檢查、稽核、事故調查</td></tr>
+        <tr><td><b style="color:red;">Act 改善</b></td><td>檢討缺失、持續改善（管理階層審查）</td></tr>
       </table>
 
       <h4>丁種對象的特殊性：微型企業（5人以下）</h4>
-      <p>丁種業務主管的服務對象通常是<b>雇主本人兼任</b>安全衛生管理工作，公司規模小，不需要像大企業一樣設置專職的「職業安全衛生管理單位」或「委員會」，但雇主仍須善盡以下義務（不因規模小而免除）：</p>
+      <p>丁種業務主管的服務對象通常是<b style="color:red;">雇主本人兼任</b>安全衛生管理工作，公司規模小，不需要像大企業一樣設置專職的「職業安全衛生管理單位」或「委員會」，但雇主仍須善盡以下義務（不因規模小而免除）：</p>
       <ul>
         <li>安全衛生教育訓練</li>
         <li>危害告知（尤其是承攬、共同作業時）</li>
@@ -521,9 +523,9 @@ a.badge3 {
 
       <h4>個人防護具（PPE）管理三重點</h4>
       <ol>
-        <li><b>選用</b>：依作業危害種類挑選合格、符合國家標準的防護具</li>
-        <li><b>教育</b>：教導勞工正確配戴與使用方式</li>
-        <li><b>維護</b>：定期檢查、清潔、汰換，不可讓勞工「自備」不合格用品</li>
+        <li><b style="color:red;">選用</b>：依作業危害種類挑選合格、符合國家標準的防護具</li>
+        <li><b style="color:red;">教育</b>：教導勞工正確配戴與使用方式</li>
+        <li><b style="color:red;">維護</b>：定期檢查、清潔、汰換，不可讓勞工「自備」不合格用品</li>
       </ol>
 
       <h4>承攬管理（若丁種對象有裝修、清潔、維修等委外作業）</h4>
@@ -537,11 +539,11 @@ a.badge3 {
 
       <div class="box box-exam">
         <div class="box-title"><span class="stamp small">重點</span> 命題委員視角</div>
-        <p>丁種考題最愛出「規模小是不是就完全不用做安全衛生管理」的陷阱題——正確觀念是：<b>規模小可以簡化「制度」，但不能免除「責任」</b>。凡是選項寫「勞工人數在5人以下之事業單位，得不必實施安全衛生管理」的，通常是錯誤選項。</p>
+        <p>丁種考題最愛出「規模小是不是就完全不用做安全衛生管理」的陷阱題——正確觀念是：<b style="color:red;">規模小可以簡化「制度」，但不能免除「責任」</b>。凡是選項寫「勞工人數在5人以下之事業單位，得不必實施安全衛生管理」的，通常是錯誤選項。</p>
       </div>
       <div class="box box-memory">
         <div class="box-title">🧠 記憶技巧</div>
-        <p>四字訣：<b>「守‧防‧查‧護」</b>——安全衛生工作<b>守</b>則、危害<b>防</b>止設備、自動檢<b>查</b>、防<b>護</b>具，把管理實務濃縮成四個動作，出題基本都繞著這四個關鍵字打轉。</p>
+        <p>四字訣：<b style="color:red;">「守‧防‧查‧護」</b>——安全衛生工作<b style="color:red;">守</b>則、危害<b style="color:red;">防</b>止設備、自動檢<b style="color:red;">查</b>、防<b style="color:red;">護</b>具，把管理實務濃縮成四個動作，出題基本都繞著這四個關鍵字打轉。</p>
       </div>
     </div>
   </section>
@@ -570,23 +572,23 @@ a.badge3 {
 
       <h3>⭐ 危害控制優先順序（最重要！幾乎每次都考）</h3>
       <div class="ladder">
-        <div class="step best"><b>消除</b><span>Elimination</span></div>
+        <div class="step best"><b style="color:red;">消除</b><span>Elimination</span></div>
         <div class="arrow">›</div>
-        <div class="step"><b>替代</b><span>Substitution</span></div>
+        <div class="step"><b style="color:red;">替代</b><span>Substitution</span></div>
         <div class="arrow">›</div>
-        <div class="step"><b>工程控制</b><span>密閉/隔離/通風</span></div>
+        <div class="step"><b style="color:red;">工程控制</b><span>密閉/隔離/通風</span></div>
         <div class="arrow">›</div>
-        <div class="step"><b>管理控制</b><span>標示/教育/輪班</span></div>
+        <div class="step"><b style="color:red;">管理控制</b><span>標示/教育/輪班</span></div>
         <div class="arrow">›</div>
-        <div class="step worst"><b>個人防護具</b><span>最後手段</span></div>
+        <div class="step worst"><b style="color:red;">個人防護具</b><span>最後手段</span></div>
       </div>
-      <p>由左至右是「最優先」到「最後才用」。個人防護具（口罩、手套、耳塞等）永遠是<b>最後一道防線</b>，不是第一選擇——因為它不能消除危害本身，只能降低暴露。</p>
+      <p>由左至右是「最優先」到「最後才用」。個人防護具（口罩、手套、耳塞等）永遠是<b style="color:red;">最後一道防線</b>，不是第一選擇——因為它不能消除危害本身，只能降低暴露。</p>
 
       <h4>危害辨識的簡易流程</h4>
       <ol>
-        <li><b>辨識</b>：找出作業中可能存在的危害（可用 4M：Man人、Machine機、Material料、Management管理 四方向盤點）</li>
-        <li><b>評估</b>：評估發生機率與嚴重度（風險 = 機率 × 嚴重度）</li>
-        <li><b>控制</b>：依上方優先順序選擇對策</li>
+        <li><b style="color:red;">辨識</b>：找出作業中可能存在的危害（可用 4M：Man人、Machine機、Material料、Management管理 四方向盤點）</li>
+        <li><b style="color:red;">評估</b>：評估發生機率與嚴重度（風險 = 機率 × 嚴重度）</li>
+        <li><b style="color:red;">控制</b>：依上方優先順序選擇對策</li>
       </ol>
 
       <h4>丁種對象常見行業的典型危害</h4>
@@ -599,16 +601,16 @@ a.badge3 {
 
       <div class="box box-new">
         <div class="box-title">🌡️ 與最新法規連動：高溫危害</div>
-        <p>職安法規定：在高溫場所工作之勞工，雇主<b>不得使其每日工作時間超過6小時</b>；異常氣壓、高架、精密作業、重體力勞動等，也應規定減少工作時間並給予適當休息。2026年新制更明確要求雇主對戶外作業建立<b>「熱適應」機制</b>（新進勞工循序增加暴露時間），違反最高可處<b class="num">300萬元</b>罰鍰。</p>
+        <p>職安法規定：在高溫場所工作之勞工，雇主<b style="color:red;">不得使其每日工作時間超過6小時</b>；異常氣壓、高架、精密作業、重體力勞動等，也應規定減少工作時間並給予適當休息。2026年新制更明確要求雇主對戶外作業建立<b style="color:red;">「熱適應」機制</b>（新進勞工循序增加暴露時間），違反最高可處<b class="num">300萬元</b>罰鍰。</p>
       </div>
 
       <div class="box box-exam">
         <div class="box-title"><span class="stamp small">重點</span> 命題委員視角</div>
-        <p>危害控制優先順序的考法通常是情境題：「某工廠噪音過大，下列何者為<b>最優先</b>應採取的對策？」「下列何者屬於<b>最後</b>不得已才使用的防護方式？」千萬別直覺選「戴耳塞」（防護具），要先想「能不能換一台安靜的機器（替代/工程控制）」。</p>
+        <p>危害控制優先順序的考法通常是情境題：「某工廠噪音過大，下列何者為<b style="color:red;">最優先</b>應採取的對策？」「下列何者屬於<b style="color:red;">最後</b>不得已才使用的防護方式？」千萬別直覺選「戴耳塞」（防護具），要先想「能不能換一台安靜的機器（替代/工程控制）」。</p>
       </div>
       <div class="box box-memory">
         <div class="box-title">🧠 記憶技巧</div>
-        <p>五字訣：<b>「消替工管護」</b>。像爬樓梯，站得越高（消除）代價越大但最徹底，站得越低（防護具）最省事但最被動。口訣故事：<b>「能不做就消，不能做就換，換不了就關起來，關不了立牌子，牌子沒用才穿裝備」</b>。</p>
+        <p>五字訣：<b style="color:red;">「消替工管護」</b>。像爬樓梯，站得越高（消除）代價越大但最徹底，站得越低（防護具）最省事但最被動。口訣故事：<b style="color:red;">「能不做就消，不能做就換，換不了就關起來，關不了立牌子，牌子沒用才穿裝備」</b>。</p>
       </div>
     </div>
   </section>
@@ -626,7 +628,7 @@ a.badge3 {
 
     <div class="card">
       <h3>緊急應變計畫的五要素</h3>
-      <p><b>警報 → 通報 → 疏散 → 搶救 → 復原</b>——事故發生時，這五個動作要能快速接續執行，平時就要透過演練熟悉。</p>
+      <p><b style="color:red;">警報 → 通報 → 疏散 → 搶救 → 復原</b>——事故發生時，這五個動作要能快速接續執行，平時就要透過演練熟悉。</p>
 
       <h3>🔥 火災應變口訣：RACE</h3>
       <table>
@@ -640,28 +642,28 @@ a.badge3 {
       <h3>🧯 滅火器使用口訣：PASS（拉、瞄、壓、掃）</h3>
       <table>
         <tr><th>步驟</th><th>動作</th></tr>
-        <tr><td><b>拉</b>（Pull）</td><td>拔除安全插銷</td></tr>
-        <tr><td><b>瞄</b>（Aim）</td><td>噴嘴對準火焰<b>根部</b>（不是火焰上方）</td></tr>
-        <tr><td><b>壓</b>（Squeeze）</td><td>用力壓下把手</td></tr>
-        <tr><td><b>掃</b>（Sweep）</td><td>左右來回掃射</td></tr>
+        <tr><td><b style="color:red;">拉</b>（Pull）</td><td>拔除安全插銷</td></tr>
+        <tr><td><b style="color:red;">瞄</b>（Aim）</td><td>噴嘴對準火焰<b style="color:red;">根部</b>（不是火焰上方）</td></tr>
+        <tr><td><b style="color:red;">壓</b>（Squeeze）</td><td>用力壓下把手</td></tr>
+        <tr><td><b style="color:red;">掃</b>（Sweep）</td><td>左右來回掃射</td></tr>
       </table>
 
       <h3>🩹 燒燙傷急救口訣：沖、脫、泡、蓋、送</h3>
       <table>
         <tr><th>步驟</th><th>動作</th></tr>
-        <tr><td><b>沖</b></td><td>以流動冷水沖洗降溫，至少15–30分鐘</td></tr>
-        <tr><td><b>脫</b></td><td>小心剪開或脫去衣物（黏住處不要硬拉）</td></tr>
-        <tr><td><b>泡</b></td><td>繼續浸泡冷水（若患部小、非大面積）</td></tr>
-        <tr><td><b>蓋</b></td><td>用乾淨紗布或布巾覆蓋傷口</td></tr>
-        <tr><td><b>送</b></td><td>盡速送醫</td></tr>
+        <tr><td><b style="color:red;">沖</b></td><td>以流動冷水沖洗降溫，至少15–30分鐘</td></tr>
+        <tr><td><b style="color:red;">脫</b></td><td>小心剪開或脫去衣物（黏住處不要硬拉）</td></tr>
+        <tr><td><b style="color:red;">泡</b></td><td>繼續浸泡冷水（若患部小、非大面積）</td></tr>
+        <tr><td><b style="color:red;">蓋</b></td><td>用乾淨紗布或布巾覆蓋傷口</td></tr>
+        <tr><td><b style="color:red;">送</b></td><td>盡速送醫</td></tr>
       </table>
 
       <h4>其他急救基本觀念</h4>
       <ul>
-        <li><b>意識評估</b>：先確認有無意識、呼吸，再決定是否施行CPR。</li>
-        <li><b>求救順序</b>：先撥打 <b class="num">119</b>（或啟動廠內緊急通報），再進行急救，不可顛倒。</li>
-        <li><b>止血</b>：直接加壓止血法為首選，抬高傷肢輔助。</li>
-        <li><b>AED</b>：心臟停止時盡速使用自動體外電擊去顫器，依語音指示操作。</li>
+        <li><b style="color:red;">意識評估</b>：先確認有無意識、呼吸，再決定是否施行CPR。</li>
+        <li><b style="color:red;">求救順序</b>：先撥打 <b class="num">119</b>（或啟動廠內緊急通報），再進行急救，不可顛倒。</li>
+        <li><b style="color:red;">止血</b>：直接加壓止血法為首選，抬高傷肢輔助。</li>
+        <li><b style="color:red;">AED</b>：心臟停止時盡速使用自動體外電擊去顫器，依語音指示操作。</li>
       </ul>
 
       <h4>職業災害發生後的處理程序（與模組1呼應）</h4>
@@ -674,11 +676,11 @@ a.badge3 {
 
       <div class="box box-exam">
         <div class="box-title"><span class="stamp small">重點</span> 命題委員視角</div>
-        <p>這個模組的考題幾乎都是「口訣順序題」，例如「滅火器操作步驟，下列排序何者正確」「燒燙傷急救第一步驟為何」。只要把三組口訣（RACE / PASS / 沖脫泡蓋送）的<b>順序</b>背到不會反應錯，這個模組基本上可以拿滿分。</p>
+        <p>這個模組的考題幾乎都是「口訣順序題」，例如「滅火器操作步驟，下列排序何者正確」「燒燙傷急救第一步驟為何」。只要把三組口訣（RACE / PASS / 沖脫泡蓋送）的<b style="color:red;">順序</b>背到不會反應錯，這個模組基本上可以拿滿分。</p>
       </div>
       <div class="box box-memory">
         <div class="box-title">🧠 記憶技巧</div>
-        <p>把三個口訣串成一個小故事：<b>「發現火警先救人、拉警報（RACE）→ 火小就拿滅火器拉瞄壓掃（PASS）→ 如果有人燙傷了，沖脫泡蓋送去醫院」</b>。用畫面記憶比死背字母有效很多。</p>
+        <p>把三個口訣串成一個小故事：<b style="color:red;">「發現火警先救人、拉警報（RACE）→ 火小就拿滅火器拉瞄壓掃（PASS）→ 如果有人燙傷了，沖脫泡蓋送去醫院」</b>。用畫面記憶比死背字母有效很多。</p>
       </div>
     </div>
   </section>
@@ -699,32 +701,32 @@ a.badge3 {
       <table>
         <tr><td>三讀通過</td><td>2025年12月2日，立法院三讀通過《職業安全衛生法》修正案（修正25條、新增6條）</td></tr>
         <tr><td>總統公布</td><td>2025年12月19日</td></tr>
-        <tr><td>規模定位</td><td>被稱為<b>民國102年（2013年）職安法全文修正以來最大幅度改革</b></td></tr>
+        <tr><td>規模定位</td><td>被稱為<b style="color:red;">民國102年（2013年）職安法全文修正以來最大幅度改革</b></td></tr>
         <tr><td>兩大核心</td><td>①工安預防全面化（承攬管理、工程源頭防災）　②職場霸凌法制化</td></tr>
       </table>
 
       <div class="box box-new">
         <div class="box-title">🚨 焦點1：職場霸凌防治專章 — 2026年7月1日已正式施行</div>
-        <p>子法《職場霸凌防治措施準則》與《地方主管機關受理最高負責人職場霸凌事件申訴處理辦法》已於<b>2026年6月23日</b>由勞動部公告。</p>
+        <p>子法《職場霸凌防治措施準則》與《地方主管機關受理最高負責人職場霸凌事件申訴處理辦法》已於<b style="color:red;">2026年6月23日</b>由勞動部公告。</p>
         <h4 style="color:var(--navy)">霸凌成立三要件（參考日本パワハラ制度）</h4>
         <ul>
-          <li><b>基於優越關係</b>：利用職位、人際或專業知識優勢</li>
-          <li><b>逾越業務必要且合理範圍</b>：手段明顯不必要或不合常理</li>
-          <li><b>損害勞工身心健康／工作環境</b>：致工作能力難以正常發揮</li>
+          <li><b style="color:red;">基於優越關係</b>：利用職位、人際或專業知識優勢</li>
+          <li><b style="color:red;">逾越業務必要且合理範圍</b>：手段明顯不必要或不合常理</li>
+          <li><b style="color:red;">損害勞工身心健康／工作環境</b>：致工作能力難以正常發揮</li>
         </ul>
         <h4 style="color:var(--navy)">企業義務三級距</h4>
         <table>
           <tr><th>規模</th><th>應盡義務</th></tr>
           <tr><td>不限規模（全部企業）</td><td>只要「知悉」霸凌情事，即應立即處置與職務隔離（如調座位、調整工作方式）</td></tr>
-          <tr><td>10人以上</td><td>必須建立並<b>公開</b>「申訴管道」（不可設為公司總機或客服信箱）</td></tr>
-          <tr><td>30人以上</td><td>必須訂定<b>書面</b>防治措施、申訴與處理程序</td></tr>
+          <tr><td>10人以上</td><td>必須建立並<b style="color:red;">公開</b>「申訴管道」（不可設為公司總機或客服信箱）</td></tr>
+          <tr><td>30人以上</td><td>必須訂定<b style="color:red;">書面</b>防治措施、申訴與處理程序</td></tr>
         </table>
         <p>罰則：最高可處 <b class="num">450萬元</b> 罰鍰，且企業拒不改善者，主管機關得公布事業單位名稱。</p>
       </div>
 
       <div class="box box-new">
         <div class="box-title">🌡️ 焦點2：高溫熱危害防護新制</div>
-        <p>2026年氣候升溫，勞動部強化戶外作業熱危害防護：違反必要防護措施，依職安法可處新台幣<b class="num">5萬至300萬元</b>罰鍰。勞動部同步展開「戶外高溫專案檢查」（營造、道路修繕等高風險場域）與「熱危害改善追蹤查核」雙軌機制，並提供「高氣溫作業防護資訊網」供勞工查詢在地熱危害風險。雇主對新進勞工應建立<b>熱適應機制</b>，循序增加暴露時間。</p>
+        <p>2026年氣候升溫，勞動部強化戶外作業熱危害防護：違反必要防護措施，依職安法可處新台幣<b class="num">5萬至300萬元</b>罰鍰。勞動部同步展開「戶外高溫專案檢查」（營造、道路修繕等高風險場域）與「熱危害改善追蹤查核」雙軌機制，並提供「高氣溫作業防護資訊網」供勞工查詢在地熱危害風險。雇主對新進勞工應建立<b style="color:red;">熱適應機制</b>，循序增加暴露時間。</p>
       </div>
 
       <div class="box box-new">
@@ -734,7 +736,7 @@ a.badge3 {
 
       <div class="box box-exam">
         <div class="box-title"><span class="stamp small">重點</span> 命題委員視角</div>
-        <p>時事題最愛考「生效日期」「新增了什麼」「罰鍰金額級距」「企業規模門檻（10人／30人）」這幾個數字。近期修法剛上路，出題單位通常會把「最新一次修法重點」放進題庫更新，務必記熟：<b>2025/12/2三讀、2025/12/19公布、2026/7/1施行職場霸凌專章</b>。</p>
+        <p>時事題最愛考「生效日期」「新增了什麼」「罰鍰金額級距」「企業規模門檻（10人／30人）」這幾個數字。近期修法剛上路，出題單位通常會把「最新一次修法重點」放進題庫更新，務必記熟：<b style="color:red;">2025/12/2三讀、2025/12/19公布、2026/7/1施行職場霸凌專章</b>。</p>
       </div>
     </div>
   </section>
@@ -750,16 +752,16 @@ a.badge3 {
     </div>
     <div class="card">
       <div class="checklist" id="mnemonic-list">
-        <label><input type="checkbox"><span><b>肌‧勞‧霸‧護</b> — 職安法§6第2項應規劃的4款措施（肌肉骨骼、過勞、霸凌、其他保護）</span></label>
-        <label><input type="checkbox"><span><b>死‧三‧住‧公告</b> — 8小時內通報職災的4種情形（死亡、罹災3人以上、1人以上住院、其他公告）</span></label>
-        <label><input type="checkbox"><span><b>守‧防‧查‧護</b> — 安全衛生管理實務四動作（工作守則、危害防止設備、自動檢查、防護具）</span></label>
-        <label><input type="checkbox"><span><b>消‧替‧工‧管‧護</b> — 危害控制優先順序（消除→替代→工程控制→管理控制→防護具）</span></label>
-        <label><input type="checkbox"><span><b>RACE</b> — 火災應變（Rescue救援→Alarm警報→Confine局限→Extinguish/Evacuate滅火或逃生）</span></label>
-        <label><input type="checkbox"><span><b>拉‧瞄‧壓‧掃 (PASS)</b> — 滅火器操作順序</span></label>
-        <label><input type="checkbox"><span><b>沖‧脫‧泡‧蓋‧送</b> — 燒燙傷急救五步驟</span></label>
-        <label><input type="checkbox"><span><b>6小時</b> — 高溫場所每日工作時間上限</span></label>
-        <label><input type="checkbox"><span><b>10人／30人</b> — 職場霸凌防治：申訴管道／書面防治措施門檻</span></label>
-        <label><input type="checkbox"><span><b>2026/7/1</b> — 職場霸凌防治專章正式施行日</span></label>
+        <label><input type="checkbox"><span><b style="color:red;">肌‧勞‧霸‧護</b> — 職安法§6第2項應規劃的4款措施（肌肉骨骼、過勞、霸凌、其他保護）</span></label>
+        <label><input type="checkbox"><span><b style="color:red;">死‧三‧住‧公告</b> — 8小時內通報職災的4種情形（死亡、罹災3人以上、1人以上住院、其他公告）</span></label>
+        <label><input type="checkbox"><span><b style="color:red;">守‧防‧查‧護</b> — 安全衛生管理實務四動作（工作守則、危害防止設備、自動檢查、防護具）</span></label>
+        <label><input type="checkbox"><span><b style="color:red;">消‧替‧工‧管‧護</b> — 危害控制優先順序（消除→替代→工程控制→管理控制→防護具）</span></label>
+        <label><input type="checkbox"><span><b style="color:red;">RACE</b> — 火災應變（Rescue救援→Alarm警報→Confine局限→Extinguish/Evacuate滅火或逃生）</span></label>
+        <label><input type="checkbox"><span><b style="color:red;">拉‧瞄‧壓‧掃 (PASS)</b> — 滅火器操作順序</span></label>
+        <label><input type="checkbox"><span><b style="color:red;">沖‧脫‧泡‧蓋‧送</b> — 燒燙傷急救五步驟</span></label>
+        <label><input type="checkbox"><span><b style="color:red;">6小時</b> — 高溫場所每日工作時間上限</span></label>
+        <label><input type="checkbox"><span><b style="color:red;">10人／30人</b> — 職場霸凌防治：申訴管道／書面防治措施門檻</span></label>
+        <label><input type="checkbox"><span><b style="color:red;">2026/7/1</b> — 職場霸凌防治專章正式施行日</span></label>
       </div>
       <p style="margin-top:14px;font-size: 22px;color:var(--ink-soft);">✅ 勾選代表「我不用看解釋就能自己講出來」。全部勾選前，代表還沒真正記熟——這比「看起來很眼熟」更可靠。（勾選狀態會保存在這個檔案的瀏覽器記憶中）</p>
     </div>
@@ -793,14 +795,14 @@ a.badge3 {
     <div class="card">
       <table>
         <tr><th>時間</th><th>任務</th></tr>
-        <tr><td><b>Day 1</b></td><td>精讀模組1、2（法規概要 + 管理實務），讀完立刻做速記卡對應題目，不求快只求懂</td></tr>
-        <tr><td><b>Day 2</b></td><td>精讀模組3、4（危害辨識 + 緊急應變），把5組口訣大聲唸3次、默寫1次</td></tr>
-        <tr><td><b>Day 3</b></td><td>讀模組5時事重點 → 做<a href="#quiz">自我測驗</a> → 錯的題目回去對應模組重讀 → 考前2小時只看「速記卡總覽」</td></tr>
+        <tr><td><b style="color:red;">Day 1</b></td><td>精讀模組1、2（法規概要 + 管理實務），讀完立刻做速記卡對應題目，不求快只求懂</td></tr>
+        <tr><td><b style="color:red;">Day 2</b></td><td>精讀模組3、4（危害辨識 + 緊急應變），把5組口訣大聲唸3次、默寫1次</td></tr>
+        <tr><td><b style="color:red;">Day 3</b></td><td>讀模組5時事重點 → 做<a href="#quiz">自我測驗</a> → 錯的題目回去對應模組重讀 → 考前2小時只看「速記卡總覽」</td></tr>
       </table>
       <div class="box box-tip">
         <div class="box-title">💡 考場提醒</div>
         <ul>
-          <li>25題單選、不倒扣，<b>每一題都要作答</b>，不要留空白。</li>
+          <li>25題單選、不倒扣，<b style="color:red;">每一題都要作答</b>，不要留空白。</li>
           <li>電腦測驗，時間50分鐘但通常題目簡單，不用擔心時間不夠；15分鐘內不能提前交卷。</li>
           <li>遇到不確定的數字題（時數、罰鍰、天數），先用刪去法排除明顯不合理的選項。</li>
           <li>60分及格，25題錯不超過6題左右即可過關，心理壓力不用太大。</li>
