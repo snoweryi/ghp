@@ -298,7 +298,7 @@ a.badge3 {
 </header>
 
 <div class="notice">
-  <b>使用說明與重要提醒：</b>丁種職業安全衛生業務主管之結訓電腦化測驗，題庫由勞動部職業安全衛生教育訓練暨電腦測驗資訊網統一管理，<b>官方題庫並不對外公開</b>，因此坊間並無真正可核實的「歷屆考古題」。本頁 100 題為依官方公告之訓練課程四大單元自製之模擬練習題，內容對應課程大綱與現行法規（職業安全衛生法、職業安全衛生管理辦法、職業安全衛生教育訓練規則等），可作為觀念釐清與自我檢測之用，惟正式測驗實際題目、選項與出題方向仍以測驗當日系統抽題為準，請以官方最新法規公告內容為最終依據。
+  <b style="color:red;">使用說明與重要提醒：</b>丁種職業安全衛生業務主管之結訓電腦化測驗，題庫由勞動部職業安全衛生教育訓練暨電腦測驗資訊網統一管理，<b style="color:red;">官方題庫並不對外公開</b>，因此坊間並無真正可核實的「歷屆考古題」。本頁 100 題為依官方公告之訓練課程四大單元自製之模擬練習題，內容對應課程大綱與現行法規（職業安全衛生法、職業安全衛生管理辦法、職業安全衛生教育訓練規則等），可作為觀念釐清與自我檢測之用，惟正式測驗實際題目、選項與出題方向仍以測驗當日系統抽題為準，請以官方最新法規公告內容為最終依據。
 </div>
 
 <div class="wrap">
@@ -502,7 +502,7 @@ function selectOption(i){
   else { wrongList.push(qi); }
   document.getElementById('scoreLive').textContent = '目前答對 '+score+' 題';
   const explain = document.getElementById('explain');
-  explain.innerHTML = '<b>'+(correct?'✓ 答對了！':'✗ 答錯了，正確答案為 '+['A','B','C','D'][q.ans])+'</b><br>'+q.exp;
+  explain.innerHTML = '<b style="color:red;">'+(correct?'✓ 答對了！':'✗ 答錯了，正確答案為 '+['A','B','C','D'][q.ans])+'</b><br>'+q.exp;
   explain.classList.add('show');
   document.getElementById('nextBtn').style.display = 'inline-block';
   document.getElementById('nextBtn').textContent = (currentPos===currentSet.length-1) ? '查看結果 →' : '下一題 →';
@@ -565,7 +565,7 @@ function showResult(){
       div.innerHTML = '<div class="qtext">['+q.cat+'] '+q.q+'</div>'+
         '<div class="line">你的答案：<span class="wrongtag">'+letters[yourAns]+'．'+q.opts[yourAns]+'</span></div>'+
         '<div class="line">正確答案：<span class="righttag">'+letters[q.ans]+'．'+q.opts[q.ans]+'</span></div>'+
-        '<div class="line" style="margin-top:6px;"><b>解析：</b>'+q.exp+'</div>';
+        '<div class="line" style="margin-top:6px;"><b style="color:red;">解析：</b>'+q.exp+'</div>';
       rl.appendChild(div);
     });
   }
@@ -588,7 +588,7 @@ function renderBrowse(cat){
     div.innerHTML = '<div class="idx">'+q.cat+'．'+CAT_NAMES[q.cat]+' ／ 第 '+(q.idx+1)+' 題</div>'+
       '<div class="qtext">'+q.q+'</div>'+
       '<ul>'+optsHtml+'</ul>'+
-      '<div class="exp"><b>詳解：</b>'+q.exp+'</div>';
+      '<div class="exp"><b style="color:red;">詳解：</b>'+q.exp+'</div>';
     wrap.appendChild(div);
   });
 }
