@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>丁種職業安全衛生業務主管｜模擬測驗題庫</title>
+<style>
+:root{
+  --charcoal:#1C1E1B;
+  --charcoal-2:#26281F;
+  --panel:#2E3126;
+  --safety-yellow:#FFC800;
+  --safety-yellow-dim:#8a7000;
+  --warn-orange:#FF6B35;
+  --off-white:#F5F3EE;
+  --muted:#B9B7AC;
+  --good:#3FB682;
+  --bad:#E8483C;
+  --line:#40432F;
+  --radius:10px;
+  --font-display:'Oswald','Noto Sans TC',system-ui,sans-serif;
+  --font-body:'Noto Sans TC',system-ui,-apple-system,sans-serif;
+}
+@font-face{font-family:'Oswald';src:local('Oswald');}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--charcoal);color:var(--off-white);font-family:var(--font-body);}
+body{min-height:100vh;padding-bottom:60px;font-size: 22px;}
+
+.hazard-bar{
+  height:14px;
+  background:repeating-linear-gradient(135deg,var(--safety-yellow) 0 22px, var(--charcoal) 22px 44px);
+}
+
+header.top{
+  padding:80px 20px 26px;
+  max-width:1900px;
+  margin:0 auto;
+}
+.eyebrow{
+  font-family:var(--font-display);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--safety-yellow);
+  font-size: 22px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+h1{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(28px,5vw,42px);
+  line-height:1.15;
+  margin:0 0 12px;
+  letter-spacing:.01em;
+}
+h1 span{color:var(--safety-yellow);}
+.lede{color:var(--muted);font-size: 22px;line-height:1.7;max-width:1900px;}
+
+.notice{
+  max-width:1900px;margin:0 auto 28px;padding:16px 20px;
+  border:1px solid var(--line);
+  border-left:4px solid var(--warn-orange);
+  background:var(--charcoal-2);
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size: 22px;
+  color:var(--muted);
+  line-height:1.75;
+}
+.notice b{color:var(--off-white);}
+
+.wrap{max-width:1900px;margin:0 auto;padding:0 20px;}
+
+.stat-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+  margin-bottom:28px;
+}
+.stat{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px 12px;text-align:center;
+}
+.stat .num{font-family:var(--font-display);font-size:26px;color:var(--safety-yellow);}
+.stat .lbl{font-size: 22px;color:var(--muted);letter-spacing:.04em;margin-top:2px;}
+
+/* mode select */
+.mode-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;margin-bottom:20px;
+}
+.mode-card h2{
+  font-family:var(--font-display);font-size: 22px;letter-spacing:.03em;
+  margin:0 0 14px;text-transform:uppercase;color:var(--off-white);
+  display:flex;align-items:center;gap:8px;
+}
+.mode-card h2::before{content:"";width:8px;height:8px;background:var(--safety-yellow);display:inline-block;}
+.btn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;}
+button.opt-btn{
+  background:var(--charcoal-2);border:1px solid var(--line);color:var(--off-white);
+  padding:14px 14px;border-radius:8px;font-family:var(--font-body);font-size: 22px;
+  cursor:pointer;text-align:left;transition:border-color .15s, transform .1s;
+}
+button.opt-btn:hover{border-color:var(--safety-yellow);}
+button.opt-btn:active{transform:scale(.98);}
+button.opt-btn small{display:block;color:var(--muted);font-size: 22px;margin-top:4px;}
+
+.btn-primary{
+  background:var(--safety-yellow);color:var(--charcoal);border:none;
+  font-family:var(--font-display);font-weight:600;letter-spacing:.03em;
+  padding:14px 22px;border-radius:8px;cursor:pointer;font-size: 22px;text-transform:uppercase;
+}
+.btn-primary:hover{background:#ffd23d;}
+.btn-secondary{
+  background:transparent;color:var(--off-white);border:1px solid var(--line);
+  padding:12px 18px;border-radius:8px;cursor:pointer;font-size: 22px;font-family:var(--font-body);
+}
+.btn-secondary:hover{border-color:var(--muted);}
+
+/* quiz */
+#quizArea{display:none;}
+.progress-wrap{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.progress-track{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--safety-yellow);width:0%;transition:width .25s;}
+.progress-txt{font-family:var(--font-display);font-size: 22px;color:var(--muted);white-space:nowrap;}
+
+.qcard{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;margin-bottom:16px;
+}
+.cat-badge{
+  display:inline-block;font-family:var(--font-display);font-size: 22px;letter-spacing:.06em;
+  color:var(--charcoal);background:var(--safety-yellow);padding:3px 10px;border-radius:20px;
+  text-transform:uppercase;margin-bottom:14px;
+}
+.qtext{font-size: 22px;line-height:1.6;margin-bottom:20px;font-weight:500;}
+.options{display:flex;flex-direction:column;gap:10px;}
+.option{
+  border:1px solid var(--line);background:var(--charcoal-2);
+  padding:13px 16px;border-radius:8px;cursor:pointer;font-size: 22px;line-height:1.5;
+  display:flex;gap:10px;align-items:flex-start;transition:border-color .15s,background .15s;
+}
+.option:hover{border-color:var(--safety-yellow);}
+.option .tag{
+  font-family:var(--font-display);color:var(--muted);flex-shrink:0;width:20px;
+}
+.option.correct{border-color:var(--good);background:rgba(63,182,130,.14);}
+.option.correct .tag{color:var(--good);}
+.option.wrong{border-color:var(--bad);background:rgba(232,72,60,.14);}
+.option.wrong .tag{color:var(--bad);}
+.option.disabled{cursor:default;}
+.option.disabled:hover{border-color:var(--line);}
+.option.correct:hover, .option.wrong:hover{border-color:inherit;}
+
+.explain{
+  margin-top:18px;padding:14px 16px;border-radius:8px;background:var(--charcoal-2);
+  border:1px solid var(--line);font-size: 22px;line-height:1.7;color:var(--muted);display:none;
+}
+.explain b{color:var(--off-white);}
+.explain.show{display:block;}
+
+.qfooter{display:flex;justify-content:space-between;align-items:center;margin-top:6px;}
+.qfooter .score-live{color:var(--muted);font-size: 22px;}
+
+/* results */
+#resultArea{display:none;}
+.result-hero{
+  text-align:center;padding:40px 20px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  margin-bottom:20px;
+}
+.result-hero .big{font-family:var(--font-display);font-size:56px;color:var(--safety-yellow);}
+.result-hero .pass{color:var(--good);}
+.result-hero .fail{color:var(--bad);}
+.result-hero .sub{color:var(--muted);margin-top:6px;font-size: 22px;}
+.cat-breakdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:22px;}
+.cbi{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;}
+.cbi .name{font-size: 22px;color:var(--muted);margin-bottom:6px;}
+.cbi .bar-track{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:6px;}
+.cbi .bar-fill{height:100%;background:var(--safety-yellow);}
+.cbi .num{font-family:var(--font-display);font-size: 22px;}
+
+.review-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin-bottom:10px;
+}
+.review-item .qtext{font-size: 22px;margin-bottom:8px;}
+.review-item .line{font-size: 22px;line-height:1.7;color:var(--muted);}
+.review-item .line b{color:var(--off-white);}
+.review-item .wrongtag{color:var(--bad);}
+.review-item .righttag{color:var(--good);}
+
+/* browse */
+#browseArea{display:none;}
+.browse-filter{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.chip{
+  border:1px solid var(--line);background:var(--charcoal-2);color:var(--muted);
+  padding:7px 14px;border-radius:20px;font-size: 22px;cursor:pointer;font-family:var(--font-display);letter-spacing:.03em;
+}
+.chip.active{background:var(--safety-yellow);color:var(--charcoal);border-color:var(--safety-yellow);}
+.browse-item{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin-bottom:10px;}
+.browse-item .idx{font-family:var(--font-display);color:var(--safety-yellow);font-size: 22px;margin-bottom:6px;}
+.browse-item .qtext{font-size: 22px;margin-bottom:10px;font-weight:500;}
+.browse-item ul{margin:0 0 10px;padding-left:18px;font-size: 22px;color:var(--muted);line-height:1.8;}
+.browse-item ul li.ans{color:var(--good);font-weight:600;}
+.browse-item .exp{font-size: 22px;color:var(--muted);line-height:1.7;border-top:1px dashed var(--line);padding-top:9px;}
+
+.topnav{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap;}
+.topnav button{
+  background:transparent;border:1px solid var(--line);color:var(--muted);
+  padding:9px 16px;border-radius:8px;cursor:pointer;font-family:var(--font-display);font-size: 22px;letter-spacing:.03em;
+}
+.topnav button.active{background:var(--safety-yellow);color:var(--charcoal);border-color:var(--safety-yellow);font-weight:600;}
+
+footer{
+  max-width:1900px;margin:40px auto 0;padding:20px;text-align:center;color:var(--muted);font-size: 22px;line-height:1.8;
+  border-top:1px solid var(--line);
+}
+@media(max-width:600px){
+  .stat-row{grid-template-columns:repeat(2,1fr);}
+}
+.badgerowbt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 10px;
+    background: #ffffff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+a.badge1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #007286;
+    color: #fff;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+a.badge2 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #007286;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+a.badge3 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #b8238d;
+    color: yellow;
+    border: 1px solid #b6dece;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+  @media(max-width:768px){
+  .hazard-bar {  margin-top: 6rem;padding:8px 18px 30px;}
+  }
+</style>
+</head>
+<body>
+<div class="badgerowbt">	
+	<div><a href="https://snoweryi.github.io/ghp/yi/y1.html" class="badge1">法規</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y2.html" class="badge1">工作場所危害辨識及預防</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y3.html" class="badge1">安全衛生管理實務</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y4.html" class="badge1">緊急事故應變處理</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y5.html" class="badge1">總整理</a></div>
+	
+	<div><a href="https://snoweryi.github.io/ghp/yi/y1_2.html" class="badge1">1</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y2_2.html" class="badge1">2</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y3_2.html" class="badge1">3</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y4_2.html" class="badge1">4</a></div>
+	<div><a href="https://snoweryi.github.io/ghp/yi/y6.html" class="badge2">考題</a></div>
+	
+</div> 
+
+<div class="hazard-bar"></div>
+<header class="top">
+  <div class="eyebrow">職業安全衛生教育訓練 · 丁種業務主管</div>
+  <h1>丁種職業安全衛生業務主管<br><span>模擬測驗題庫</span></h1>
+  <p class="lede">依勞動部「職業安全衛生教育訓練規則」丁種業務主管課程大綱（法規概要、安全衛生管理實務、危害辨識預防、緊急事故應變處理含急救常識）編寫之 100 題自製模擬練習題，可分類練習，亦可模擬正式結訓測驗（25 題、60 分合格）。</p>
+</header>
+
+<div class="notice">
+  <b>使用說明與重要提醒：</b>丁種職業安全衛生業務主管之結訓電腦化測驗，題庫由勞動部職業安全衛生教育訓練暨電腦測驗資訊網統一管理，<b>官方題庫並不對外公開</b>，因此坊間並無真正可核實的「歷屆考古題」。本頁 100 題為依官方公告之訓練課程四大單元自製之模擬練習題，內容對應課程大綱與現行法規（職業安全衛生法、職業安全衛生管理辦法、職業安全衛生教育訓練規則等），可作為觀念釐清與自我檢測之用，惟正式測驗實際題目、選項與出題方向仍以測驗當日系統抽題為準，請以官方最新法規公告內容為最終依據。
+</div>
+
+<div class="wrap">
+  <div class="stat-row">
+    <div class="stat"><div class="num">100</div><div class="lbl">總題數</div></div>
+    <div class="stat"><div class="num">4</div><div class="lbl">單元分類</div></div>
+    <div class="stat"><div class="num">25</div><div class="lbl">模擬測驗題數</div></div>
+    <div class="stat"><div class="num">60</div><div class="lbl">合格分數</div></div>
+  </div>
+
+  <div class="topnav" id="topNav">
+    <button data-view="home" class="active">選擇模式</button>
+    <button data-view="browse">研讀模式（全部100題含詳解）</button>
+  </div>
+
+  <!-- HOME / MODE SELECT -->
+  <div id="homeArea">
+    <div class="mode-card">
+      <h2>模擬結訓測驗</h2>
+      <p style="color:var(--muted);font-size: 22px;margin:-4px 0 14px;">隨機抽取 25 題（比照正式測驗題數與 60 分合格標準），逐題作答立即顯示詳解。</p>
+      <button class="btn-primary" onclick="startExam()">開始 25 題模擬測驗</button>
+    </div>
+
+    <div class="mode-card">
+      <h2>分類練習</h2>
+      <p style="color:var(--muted);font-size: 22px;margin:-4px 0 14px;">依課程單元逐一練習，適合針對弱點單元加強複習。</p>
+      <div class="btn-grid">
+        <button class="opt-btn" onclick="startCategory('A')">A．法規概要（含雇主法定責任）<small>25 題</small></button>
+        <button class="opt-btn" onclick="startCategory('B')">B．安全衛生管理實務<small>25 題</small></button>
+        <button class="opt-btn" onclick="startCategory('C')">C．危害辨識與預防<small>25 題</small></button>
+        <button class="opt-btn" onclick="startCategory('D')">D．緊急應變與急救常識<small>25 題</small></button>
+        <button class="opt-btn" onclick="startCategory('ALL')">全部 100 題（完整測驗）<small>100 題</small></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quizArea">
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-txt" id="progressTxt">1 / 25</div>
+    </div>
+    <div class="qcard">
+      <div class="cat-badge" id="catBadge">A．法規概要</div>
+      <div class="qtext" id="qtext"></div>
+      <div class="options" id="options"></div>
+      <div class="explain" id="explain"></div>
+    </div>
+    <div class="qfooter">
+      <div class="score-live" id="scoreLive">目前答對 0 題</div>
+      <button class="btn-primary" id="nextBtn" style="display:none;" onclick="nextQuestion()">下一題 →</button>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="resultArea">
+    <div class="result-hero">
+      <div class="big" id="resultScore">0<span style="font-size:28px;color:var(--muted);"> / 100</span></div>
+      <div class="sub" id="resultPass">—</div>
+    </div>
+    <div class="cat-breakdown" id="catBreakdown"></div>
+    <h2 style="font-family:var(--font-display);font-size: 22px;letter-spacing:.03em;text-transform:uppercase;margin:24px 0 12px;">錯題檢討</h2>
+    <div id="reviewList"></div>
+    <div style="display:flex;gap:10px;margin-top:20px;">
+      <button class="btn-primary" onclick="backToHome()">回選單重新測驗</button>
+      <button class="btn-secondary" onclick="switchView('browse')">前往研讀模式複習</button>
+    </div>
+  </div>
+
+  <!-- BROWSE -->
+  <div id="browseArea">
+    <div class="browse-filter" id="browseFilter">
+      <div class="chip active" data-cat="ALL">全部 100 題</div>
+      <div class="chip" data-cat="A">A．法規概要</div>
+      <div class="chip" data-cat="B">B．管理實務</div>
+      <div class="chip" data-cat="C">C．危害辨識預防</div>
+      <div class="chip" data-cat="D">D．緊急應變急救</div>
+    </div>
+    <div id="browseList"></div>
+  </div>
+</div>
+
+<footer>
+  丁種職業安全衛生業務主管教育訓練依「職業安全衛生教育訓練規則」規定辦理，結訓電腦化測驗題庫由勞動部統一管理並不對外公開。<br>
+  本頁內容為自製模擬練習題，僅供學習參考，正式測驗內容與最新法規請以勞動部職業安全衛生署及職業安全衛生教育訓練暨電腦測驗資訊網公告為準。
+</footer>
+
+<script>
+const CAT_NAMES = {A:"法規概要（含雇主法定責任）", B:"安全衛生管理實務", C:"危害辨識與預防", D:"緊急應變與急救常識"};
+const QUESTIONS = [{"cat": "A", "q": "職業安全衛生法之中央主管機關為何？", "opts": ["勞動部", "衛生福利部", "經濟部", "內政部"], "ans": 0, "exp": "職業安全衛生法所稱主管機關：中央為勞動部，直轄市為直轄市政府，縣（市）為縣（市）政府。"}, {"cat": "A", "q": "職業安全衛生法之立法目的，下列敘述何者最正確？", "opts": ["防止職業災害，保障工作者安全及健康", "提升企業獲利能力", "規範勞工薪資水準", "促進產業技術升級"], "ans": 0, "exp": "職安法第1條明定為防止職業災害，保障工作者安全及健康而制定。"}, {"cat": "A", "q": "依職業安全衛生法，雇主使勞工從事工作，應在合理可行範圍內採取必要之預防設備或措施，使工作場所環境符合下列何者？", "opts": ["規定之標準", "雇主自訂之標準", "業界平均水準", "無須符合特定標準"], "ans": 0, "exp": "雇主應使勞動場所符合法令所定之安全衛生標準。"}, {"cat": "A", "q": "依「職業安全衛生管理辦法」，事業依危害風險區分為幾類？", "opts": ["二類", "三類", "四類", "五類"], "ans": 1, "exp": "職業安全衛生管理辦法依危害風險程度將事業分為第一類、第二類、第三類。"}, {"cat": "A", "q": "勞工人數在5人以下之第二類或第三類事業，得由雇主自行受訓擔任何種業務主管？", "opts": ["甲種職業安全衛生業務主管", "乙種職業安全衛生業務主管", "丙種職業安全衛生業務主管", "丁種職業安全衛生業務主管"], "ans": 3, "exp": "此類微型企業雇主得自行接受6小時訓練，擔任丁種職業安全衛生業務主管。"}, {"cat": "A", "q": "丁種職業安全衛生業務主管安全衛生教育訓練之總時數為多少小時？", "opts": ["3小時", "6小時", "21小時", "42小時"], "ans": 1, "exp": "丁種訓練共6小時，含法規概要2小時、管理實務2小時、危害辨識預防1小時、緊急應變處理1小時。"}, {"cat": "A", "q": "丁種職業安全衛生業務主管結訓測驗之題數與及格標準為何？", "opts": ["20題，50分合格", "25題，60分合格", "30題，70分合格", "50題，60分合格"], "ans": 1, "exp": "結訓測驗為選擇題25題，每題4分，總分100分，60分為合格，答錯不倒扣。"}, {"cat": "A", "q": "擔任丁種職業安全衛生業務主管者，依規定每2年應接受在職教育訓練至少多少小時？", "opts": ["3小時", "6小時", "12小時", "18小時"], "ans": 1, "exp": "依職業安全衛生教育訓練規則規定，業務主管每2年至少應接受6小時安全衛生在職教育訓練。"}, {"cat": "A", "q": "勞工發現作業有立即發生危險之虞時，得如何處置？", "opts": ["應立即離職", "得在不危及其他工作者安全情形下，自行停止作業並退避至安全場所，並立即向直屬主管報告", "應忍耐至下班再反映", "須先取得雇主書面同意始得停止作業"], "ans": 1, "exp": "職安法賦予勞工在有立即危險之虞時之退避權，並應立即向直屬主管報告。"}, {"cat": "A", "q": "勞工安全衛生教育訓練所需費用，應由何者負擔？", "opts": ["雇主負擔，不得使勞工負擔", "勞資雙方平均分擔", "由勞工自行負擔", "由政府全額補助，雇主無需負擔"], "ans": 0, "exp": "教育訓練費用屬雇主法定責任，不得轉嫁勞工承擔。"}, {"cat": "A", "q": "職業安全衛生法所稱「工作者」，除勞工外，尚包括下列何者？", "opts": ["僅限正職員工", "自營作業者及其他受工作場所負責人指揮監督從事勞動之人員", "僅限公務人員", "僅限工會會員"], "ans": 1, "exp": "工作者定義涵蓋勞工、自營作業者及其他受工作場所負責人指揮或監督從事勞動之人員。"}, {"cat": "A", "q": "雇主應依其事業規模、性質，訂定下列何種書面文件並公告實施？", "opts": ["安全衛生工作守則", "財務報表", "員工績效考核辦法", "組織章程"], "ans": 0, "exp": "雇主應訂定安全衛生工作守則，報經勞動檢查機構備查後公告實施。"}, {"cat": "A", "q": "安全衛生工作守則訂定後，應如何辦理？", "opts": ["自行公告即可，無須申報", "報經勞動檢查機構備查", "報經衛生福利部核准", "不須任何程序"], "ans": 1, "exp": "依規定應報經勞動檢查機構備查後公告實施。"}, {"cat": "A", "q": "依職業安全衛生法，「職業災害」係指因下列何種原因引起之勞工死亡、傷害、失能或疾病？", "opts": ["僅限機械造成之傷害", "僅限化學品造成之疾病", "勞動場所之建築物、機械、設備、原料、材料、化學品或作業活動及其他職業上原因", "僅限交通事故"], "ans": 2, "exp": "職業災害定義涵蓋因勞動場所各類設施、物料或作業活動等職業上原因引起之傷病、失能或死亡。"}, {"cat": "A", "q": "事業單位發生死亡職業災害，雇主應於幾小時內通報勞動檢查機構？", "opts": ["1小時", "8小時", "24小時", "72小時"], "ans": 1, "exp": "依規定發生死亡等重大職業災害，雇主應於8小時內通報勞動檢查機構。"}, {"cat": "A", "q": "下列何者屬於「重大職業災害」之情形？", "opts": ["1人輕微擦傷", "死亡災害或罹災人數在3人以上等法定重大情形", "勞工遲到", "單純財物損失"], "ans": 1, "exp": "重大職業災害包括死亡、罹災3人以上、發生災害之罹災人數在1人以上且需住院治療等法定情形。"}, {"cat": "A", "q": "職業安全衛生法所稱童工，係指未滿幾歲之受僱從事工作者？", "opts": ["未滿15歲", "未滿16歲", "未滿18歲", "未滿20歲"], "ans": 1, "exp": "童工係指未滿16歲之受僱從事工作者，雇主不得使其從事危險性或有害性工作。"}, {"cat": "A", "q": "妊娠中之女性勞工，雇主依法不得使其從事下列何種工作？", "opts": ["一般文書作業", "具危險性或有害性之工作(如異常氣壓作業等)", "線上會議", "訓練課程"], "ans": 1, "exp": "為保護母性健康，雇主不得使妊娠中女性勞工從事具危險性或有害性之工作。"}, {"cat": "A", "q": "依法應設置職業安全衛生委員會之事業單位，勞工人數門檻為何？", "opts": ["30人以上", "50人以上", "100人以上", "200人以上"], "ans": 2, "exp": "勞工人數在100人以上之事業單位，應依規定設置職業安全衛生委員會。"}, {"cat": "A", "q": "職業安全衛生管理辦法所稱第二類事業，其風險程度屬於？", "opts": ["高度風險", "中度風險", "低度風險", "無風險"], "ans": 1, "exp": "第二類事業屬中度風險行業，如飲食業、汽車修理業等。"}, {"cat": "A", "q": "職業安全衛生管理辦法所稱第三類事業，其風險程度屬於？", "opts": ["高度風險", "中度風險", "低度風險", "極高風險"], "ans": 2, "exp": "第三類事業屬低度風險行業，如金融保險業、廣播電視節目供應業等。"}, {"cat": "A", "q": "丁種職業安全衛生業務主管之訓練對象，事業單位勞工人數限制為何？", "opts": ["5人以下", "10人以下", "30人以下", "無人數限制"], "ans": 0, "exp": "丁種訓練對象為第二類或第三類事業，且勞工人數在5人以下之微型企業雇主或其代理人。"}, {"cat": "A", "q": "勞工對雇主違反職業安全衛生相關法令規定時，依法得如何主張權利？", "opts": ["僅能自行離職", "得向雇主、主管機關或勞動檢查機構申訴", "無任何救濟管道", "僅能透過訴訟解決"], "ans": 1, "exp": "職安法保障勞工申訴權，勞工得向雇主、主管機關或勞動檢查機構提出申訴。"}, {"cat": "A", "q": "雇主使勞工於有立即發生危險之虞的場所作業，應採取之基本措施為何？", "opts": ["設置警示標誌並使勞工退避至安全場所", "放任勞工自行判斷", "僅口頭告知", "無須採取任何措施"], "ans": 0, "exp": "雇主應於危險場所設置警示標誌，並於有立即危險之虞時使勞工退避至安全場所。"}, {"cat": "A", "q": "事業單位已依規定置有丙種職業安全衛生業務主管，是否仍須再接受丁種訓練？", "opts": ["仍須再接受丁種訓練", "無須再接受丁種訓練，已符合法令規定", "須經勞動部個案核准", "視地方政府規定而定"], "ans": 1, "exp": "已依規定設置丙種職業安全衛生業務主管者，即符合法令要求，無須再受丁種訓練。"}, {"cat": "B", "q": "何謂「自動檢查」？", "opts": ["雇主對於機械、設備、作業環境及勞工作業狀況等實施之定期及重點檢查", "勞工自行決定是否檢查", "僅限政府勞檢機構執行之檢查", "僅於發生職災後才進行之檢查"], "ans": 0, "exp": "自動檢查係事業單位自主辦理之定期檢查、重點檢查、作業檢點等，為安全衛生管理基本實務。"}, {"cat": "B", "q": "個人防護具之選用，於危害控制順序中應置於何種優先順位？", "opts": ["優先於工程控制使用", "應優先消除或降低危害源、其次工程控制，最後才使用個人防護具", "與工程控制同等重要，無先後之分", "可完全取代工程控制"], "ans": 1, "exp": "危害控制階層原則為消除、取代、工程控制、管理控制，個人防護具為最後一道防線。"}, {"cat": "B", "q": "雇主提供勞工使用之個人防護具，應符合何種標準？", "opts": ["僅需外觀完整即可", "CNS國家標準或經中央主管機關認可之標準", "無須符合任何標準", "僅需勞工同意即可"], "ans": 1, "exp": "個人防護具應符合國家標準(CNS)或中央主管機關認可之標準，以確保防護效能。"}, {"cat": "B", "q": "原事業單位與承攬人分別僱用勞工於同一期間、同一工作場所共同作業時，原事業單位應如何處理？", "opts": ["置之不理，由承攬人自行負責", "設置協議組織，並指定工作場所負責人，實施協調、指揮及聯繫", "僅口頭提醒即可", "終止承攬契約"], "ans": 1, "exp": "依法原事業單位應採取設置協議組織等必要措施，防止職業災害之發生。"}, {"cat": "B", "q": "事業單位分別交付二個以上承攬人共同作業，為防止職業災害，應採取之措施為何？", "opts": ["各自作業，互不干涉", "設置協議組織並指定人員負責統一指揮、協調", "僅簽訂契約即可", "無須採取任何措施"], "ans": 1, "exp": "應設置協議組織，並指定人員負責統一指揮、協調，避免因交叉作業造成職業災害。"}, {"cat": "B", "q": "危害性化學品，雇主應提供勞工之基本資訊為何？", "opts": ["安全資料表(SDS)、清單及標示", "僅提供口頭說明", "僅需張貼於辦公室門口", "無須提供任何資訊"], "ans": 0, "exp": "雇主應依法提供危害性化學品之安全資料表、清單及容器標示，供勞工知悉危害資訊。"}, {"cat": "B", "q": "「風險評估」係指下列何種過程？", "opts": ["辨識、分析與評量危害風險之過程", "僅指購買保險之過程", "僅指財務稽核之過程", "僅指人事考核之過程"], "ans": 0, "exp": "風險評估為安全衛生管理核心實務，包含危害辨識、風險分析及風險評量。"}, {"cat": "B", "q": "風險評估之一般實施步驟，下列排序何者正確？", "opts": ["危害辨識→風險分析→風險評量→風險控制", "風險控制→危害辨識→風險評量→風險分析", "風險評量→風險控制→危害辨識→風險分析", "無固定順序"], "ans": 0, "exp": "一般風險評估流程依序為危害辨識、風險分析、風險評量，最後採取風險控制措施。"}, {"cat": "B", "q": "安全衛生標示中，「禁止標示」常用之顏色為何？", "opts": ["紅色", "黃色", "藍色", "綠色"], "ans": 0, "exp": "紅色多用於禁止標示，表示嚴禁進行之行為。"}, {"cat": "B", "q": "安全衛生標示中，「警告標示」常用之顏色為何？", "opts": ["紅色", "黃色", "藍色", "綠色"], "ans": 1, "exp": "黃色多用於警告標示，提醒注意潛在危害。"}, {"cat": "B", "q": "安全衛生標示中，「指示標示」（表示必須遵守之行為）常用之顏色為何？", "opts": ["紅色", "黃色", "藍色", "綠色"], "ans": 2, "exp": "藍色多用於指示標示，表示必須遵守之強制性行為，如「必須戴安全帽」。"}, {"cat": "B", "q": "安全衛生標示中，表示安全狀態或緊急避難方向之「提示標示」常用之顏色為何？", "opts": ["紅色", "黃色", "藍色", "綠色"], "ans": 3, "exp": "綠色多用於提示標示，如安全門、緊急出口、急救站等安全狀態標示。"}, {"cat": "B", "q": "職業安全衛生管理計畫之推動，常採用下列何種管理循環？", "opts": ["PDCA循環（計畫、執行、查核、行動）", "僅一次性執行，無須循環", "僅需雇主口頭宣示", "僅適用於大型企業"], "ans": 0, "exp": "安全衛生管理系統多採PDCA（Plan-Do-Check-Act）循環持續改善。"}, {"cat": "B", "q": "事業單位訂定之職業安全衛生管理計畫，應由何者核定後實施？", "opts": ["雇主", "勞工代表", "客戶", "供應商"], "ans": 0, "exp": "職業安全衛生管理計畫應由雇主核定後實施，並定期檢討修正。"}, {"cat": "B", "q": "為預防勞工異常工作負荷促發疾病，雇主應採取之措施屬於下列何種類型？", "opts": ["財務管理措施", "異常工作負荷促發疾病之預防措施", "行銷管理措施", "僅限個人自我調適，雇主無責任"], "ans": 1, "exp": "職安法要求雇主對於長時間工作等異常負荷，應採取促發疾病之預防措施。"}, {"cat": "B", "q": "為預防重複性作業等造成之肌肉骨骼疾病，雇主應採取之措施為何？", "opts": ["人因性危害預防措施", "僅需提供止痛藥", "無須採取任何措施", "僅口頭提醒勞工注意"], "ans": 0, "exp": "雇主應辨識人因性危害並採取改善作業方法、輔具等預防措施。"}, {"cat": "B", "q": "為避免勞工於執行職務時遭受身體或精神不法侵害，雇主應採取之措施為何？", "opts": ["職場暴力預防措施", "置之不理", "僅要求勞工自行忍耐", "終止該項業務"], "ans": 0, "exp": "雇主應依法辨識評估職場暴力風險，訂定預防及處理機制。"}, {"cat": "B", "q": "職場不法侵害預防管理措施，通常包含下列哪些要項？", "opts": ["僅需口頭宣導", "辨識與評估危害、作業場所管理、事件處理程序、成效評估與改善", "僅限於報警處理", "與安全衛生管理無關"], "ans": 1, "exp": "完整之職場暴力預防機制應涵蓋危害辨識評估、場所管理、處理程序及成效檢討。"}, {"cat": "B", "q": "勞工一般健康檢查頻率，依年齡區分，未滿40歲者原則上多久檢查一次？", "opts": ["每年一次", "每3年一次", "每5年一次", "無須定期檢查"], "ans": 2, "exp": "一般勞工健康檢查依年齡分級：未滿40歲每5年、40至65歲每3年、65歲以上每年一次(一般情形)。"}, {"cat": "B", "q": "「特殊健康檢查」係指下列何種對象應實施之檢查？", "opts": ["從事特別危害健康作業之勞工", "僅限行政人員", "僅限新進員工", "僅限外籍移工"], "ans": 0, "exp": "從事特別危害健康作業(如噪音、粉塵、化學品等)之勞工應接受特殊健康檢查。"}, {"cat": "B", "q": "勞工健康檢查結果異常者，雇主應採取之措施為何？", "opts": ["置之不理", "實施健康管理分級，必要時變更工作、縮短工時或採取其他保護措施", "立即解僱該勞工", "僅告知結果，無後續作為"], "ans": 1, "exp": "雇主應依健康檢查結果實施分級管理，並採取必要之保護措施。"}, {"cat": "B", "q": "「5S」管理不包含下列何項？", "opts": ["整理", "整頓", "清潔", "競爭"], "ans": 3, "exp": "5S指整理、整頓、清掃、清潔、素養，「競爭」非屬5S管理範疇。"}, {"cat": "B", "q": "事業單位實施「自動檢查」之目的為何？", "opts": ["提早發現潛在缺失並改善，預防職業災害", "僅為應付勞動檢查", "增加行政作業負擔", "無實質效益"], "ans": 0, "exp": "自動檢查目的在於主動發現機械設備、作業環境等潛在缺失並及時改善，預防災害發生。"}, {"cat": "B", "q": "作業環境監測之主要目的為何？", "opts": ["了解作業環境中危害因子之濃度或強度，作為改善依據", "僅為統計數據存檔", "無助於預防職業病", "僅適用於辦公室環境"], "ans": 0, "exp": "作業環境監測可掌握危害因子暴露情形，作為工程改善及健康管理之依據。"}, {"cat": "B", "q": "事業單位安全衛生管理，下列何者屬於「管理控制」措施？", "opts": ["更換低危害性原料", "安裝局部排氣裝置", "實施輪班或縮短暴露時間等作業管理", "佩戴防毒面罩"], "ans": 2, "exp": "管理控制係透過調整作業時間、輪班、教育訓練等方式降低暴露風險，屬控制層級中較後段之措施。"}, {"cat": "C", "q": "下列何者為工作場所常見且發生率偏高之職業災害類型？", "opts": ["墜落、滾落", "僅限化學灼傷", "僅限電腦視覺疲勞", "僅限交通壅塞"], "ans": 0, "exp": "墜落、滾落為國內職業災害統計中常見且比例偏高之災害類型之一。"}, {"cat": "C", "q": "預防墜落災害之控制優先順序，下列何者最優先？", "opts": ["消除墜落高低差（如平面化作業）", "使用安全帶", "設置護欄", "設置安全網"], "ans": 0, "exp": "危害控制應優先考量消除危害源，其次為工程控制（護欄、安全網），最後為個人防護具（安全帶）。"}, {"cat": "C", "q": "預防感電災害之最基本措施為何？", "opts": ["設置漏電斷路器及確實接地", "僅穿戴棉質手套", "加大電線截面積", "無須特別措施"], "ans": 0, "exp": "裝設漏電斷路器並確實接地，為預防感電災害之基本且重要措施。"}, {"cat": "C", "q": "「特別危害健康作業」係指下列何種作業？", "opts": ["具生理危害風險，須實施特殊健康檢查之作業(如高溫、噪音、粉塵、特定化學品等)", "僅限辦公室作業", "僅限夜間作業", "僅限出差作業"], "ans": 0, "exp": "特別危害健康作業指對勞工健康有顯著危害之虞，須實施特殊健康檢查之作業。"}, {"cat": "C", "q": "「有機溶劑中毒預防規則」依毒性將有機溶劑分為幾類？", "opts": ["二類", "三類（甲類、乙類、丙類）", "四類", "五類"], "ans": 1, "exp": "有機溶劑依毒性強弱分為甲類、乙類、丙類三種。"}, {"cat": "C", "q": "「缺氧症預防規則」所稱缺氧，係指空氣中氧氣濃度未達多少之狀態？", "opts": ["21%", "18%", "15%", "10%"], "ans": 1, "exp": "依規定空氣中氧氣濃度未達18%即屬缺氧狀態，應採取通風換氣等措施。"}, {"cat": "C", "q": "進入密閉空間作業前，應優先實施下列何種措施？", "opts": ["通風換氣及氧氣濃度測定", "直接進入作業", "僅佩戴口罩", "無須任何檢測"], "ans": 0, "exp": "進入密閉空間前應先測定氧氣及有害氣體濃度並確實通風換氣，防止缺氧或中毒災害。"}, {"cat": "C", "q": "粉塵危害預防常見之工程控制方法為何？", "opts": ["密閉、局部排氣、濕式作業", "僅限個人防護具", "僅限教育訓練", "無須任何控制措施"], "ans": 0, "exp": "粉塵危害工程控制常採密閉化、局部排氣及濕式作業等方式降低粉塵飛散。"}, {"cat": "C", "q": "高溫作業危害預防之管理措施，下列何者正確？", "opts": ["適當休息、補充水分及電解質、輪班作業、加強通風降溫", "減少飲水以避免頻繁如廁", "禁止勞工休息以提高效率", "無須特別措施"], "ans": 0, "exp": "高溫作業應安排適當休息、補充水分電解質、輪班及通風降溫，以預防熱疾病。"}, {"cat": "C", "q": "熱中暑（熱疾病）之初期常見症狀為何？", "opts": ["頭暈、噁心、大量出汗、體溫升高", "僅有輕微咳嗽", "僅有皮膚搔癢", "無任何症狀"], "ans": 0, "exp": "熱疾病初期常見頭暈、噁心、大量出汗、體溫上升等症狀，應立即降溫並視情況送醫。"}, {"cat": "C", "q": "作業環境噪音達日時量平均音壓級85分貝以上時，雇主應採取之措施為何？", "opts": ["使勞工使用有效之聽力防護具並實施相關管理", "無須採取任何措施", "僅需口頭提醒", "僅限管理階層配戴防護具"], "ans": 0, "exp": "噪音超過法定管制值時，雇主應提供並使勞工確實使用聽力防護具，並實施聽力保護計畫。"}, {"cat": "C", "q": "化學性危害之控制，下列何者為最優先之控制方法？", "opts": ["消除或以低危害性物質替代", "僅使用個人防護具", "僅加強通風", "僅提高警示標誌"], "ans": 0, "exp": "危害控制階層中，消除或替代為最優先且最有效之控制方法。"}, {"cat": "C", "q": "危害性化學品容器標示，應包含下列哪些內容？", "opts": ["圖式、內容物名稱、警示語、危害警告訊息、危害防範措施及製造商資訊", "僅需產品名稱", "僅需價格資訊", "無須任何標示"], "ans": 0, "exp": "依法容器標示應完整揭露圖式、名稱、警示語、危害資訊等，使使用者充分了解危害。"}, {"cat": "C", "q": "GHS係指下列何種制度？", "opts": ["化學品分類及標示全球調和制度", "全球健康標準", "政府衛生管理系統", "勞工保險給付制度"], "ans": 0, "exp": "GHS(Globally Harmonized System)為化學品分類及標示之全球調和制度，統一危害分類與標示規則。"}, {"cat": "C", "q": "「人因性危害」主要係指下列何種危害？", "opts": ["因作業姿勢、重複動作、施力不當等造成之肌肉骨骼傷害", "僅指心理壓力", "僅指噪音危害", "僅指化學暴露"], "ans": 0, "exp": "人因性危害指因不良作業姿勢、重複性動作或過度施力等造成之肌肉骨骼傷害風險。"}, {"cat": "C", "q": "預防人因性危害之措施，下列何者正確？", "opts": ["改善作業姿勢、使用機械輔助、調整作業高度、安排適當休息", "禁止勞工休息", "增加單一動作重複次數", "無須任何改善措施"], "ans": 0, "exp": "應透過人因工程改善作業設計、提供輔具及適當休息，降低肌肉骨骼傷害風險。"}, {"cat": "C", "q": "發現有人感電時，施救前最優先應採取之動作為何？", "opts": ["先切斷電源，確保現場安全再施救", "立即徒手拉開觸電者", "直接對其實施CPR而不切斷電源", "呼叫救護車後即可離開現場"], "ans": 0, "exp": "感電急救應先確保電源已切斷、現場安全無虞，避免施救者本身遭受感電二次傷害。"}, {"cat": "C", "q": "火災爆炸危害預防，應特別管制之項目為何？", "opts": ["靜電、明火、高溫源及可燃氣體洩漏偵測", "僅限禁止吸菸", "僅限滅火器數量", "無須特別管制"], "ans": 0, "exp": "應管制可能之引火源（靜電、明火、高溫）並設置可燃氣體偵測，以預防火災爆炸。"}, {"cat": "C", "q": "職場心理健康危害之常見來源，下列何者正確？", "opts": ["工作負荷過重、職場暴力、不規則輪班等", "僅限薪資過高", "僅限休假過多", "與工作環境無關"], "ans": 0, "exp": "職場心理健康危害常源自過重工作負荷、職場不法侵害及不規律輪班等因素。"}, {"cat": "C", "q": "「異常氣壓危害」係指下列何種作業引起之身體危害？", "opts": ["高氣壓（如潛水、壓氣施工）或低氣壓作業", "僅指高溫作業", "僅指噪音作業", "僅指粉塵作業"], "ans": 0, "exp": "異常氣壓危害包含高氣壓（潛水、壓氣施工）及低氣壓（高山、航空）作業引起之身體危害。"}, {"cat": "C", "q": "生物性危害之預防措施，下列何者正確？", "opts": ["疫苗接種、防護具穿戴、環境消毒等", "僅需口頭宣導", "無須採取任何措施", "僅限醫療院所適用"], "ans": 0, "exp": "生物性危害常見於醫療、實驗室等場所，應採取疫苗接種、防護具及消毒等綜合預防措施。"}, {"cat": "C", "q": "機械操作危害預防，常見之安全裝置為下列何者？", "opts": ["護罩、連鎖裝置、緊急停止裝置", "僅限警示燈", "僅限操作手冊", "無須任何裝置"], "ans": 0, "exp": "機械應設置護罩、連鎖裝置及緊急停止裝置等安全防護，以防止捲夾等災害。"}, {"cat": "C", "q": "危險性機械或設備使用前，應經過下列何種程序？", "opts": ["經檢查合格取得合格證方可使用", "僅需採購發票即可使用", "僅需操作人員口頭確認", "無須任何檢查程序"], "ans": 0, "exp": "危險性機械設備應依法辦理型式檢查、使用檢查等，取得合格證後始得使用。"}, {"cat": "C", "q": "移動式起重機作業之危害預防重點，下列何者正確？", "opts": ["吊掛物穩固、地盤承載力確認、警戒區設置", "無須設置警戒區", "僅需操作人員自行注意", "可於強風中正常作業"], "ans": 0, "exp": "應確認吊掛穩固、地盤承載力足夠並設置警戒區，避免物體飛落或倒塌災害。"}, {"cat": "C", "q": "高處作業（達一定高度以上）應採取之基本防護措施為何？", "opts": ["設置護欄、安全網或使勞工確實使用安全帶(繫掛防墜設施)", "僅需口頭警告勞工小心", "無須任何防護措施", "僅限白天作業使用防護具"], "ans": 0, "exp": "高處作業依規定應設置護欄、安全網，或使勞工正確使用防墜設施，以防止墜落災害。"}, {"cat": "D", "q": "成人心肺復甦術（CPR）步驟中，第一步應優先進行下列何者？", "opts": ["呼叫確認患者意識反應", "直接施予胸外按壓", "立即使用AED", "給予患者喝水"], "ans": 0, "exp": "CPR流程首先應確認現場安全並呼叫確認患者意識反應，再依序評估呼吸及求救。"}, {"cat": "D", "q": "成人CPR胸外按壓之建議深度約為多少？", "opts": ["約1公分", "至少5公分，不超過6公分", "至少10公分", "無深度限制"], "ans": 1, "exp": "成人CPR胸外按壓深度建議至少5公分且不超過6公分，過淺或過深均影響效果。"}, {"cat": "D", "q": "成人CPR胸外按壓之建議頻率為每分鐘幾次？", "opts": ["每分鐘60次", "每分鐘100至120次", "每分鐘150次以上", "無頻率要求"], "ans": 1, "exp": "美國心臟學會等機構建議成人CPR按壓頻率為每分鐘100至120次。"}, {"cat": "D", "q": "使用AED（自動體外心臟去顫器）前，應先確認下列何事項？", "opts": ["患者無意識、無呼吸或僅有喘息（異常呼吸）", "患者體重", "患者穿著之衣物顏色", "患者是否已用餐"], "ans": 0, "exp": "AED適用於無意識、無呼吸或僅呈現喘息（異常呼吸）之疑似心跳停止患者。"}, {"cat": "D", "q": "傷口出血時，最優先採用之基本止血方法為何？", "opts": ["直接加壓止血法", "立即使用止血帶", "冰敷傷口", "僅用清水沖洗傷口"], "ans": 0, "exp": "直接加壓止血法為最基本且優先採用之止血方式，多可有效控制出血。"}, {"cat": "D", "q": "若傷患大量出血且直接加壓止血無效時，可考慮採取下列何種進階止血方式？", "opts": ["止血帶止血法", "僅持續冰敷", "讓傷患自行按壓即可", "不採取任何措施等待送醫"], "ans": 0, "exp": "當直接加壓無法有效止血且情況危急時，可考慮使用止血帶控制出血。"}, {"cat": "D", "q": "燒燙傷急救口訣「沖脫泡蓋送」中，「沖」係指下列何者？", "opts": ["以流動清水沖洗傷處降溫", "立即塗抹牙膏或醬油", "以冰塊直接敷於傷口", "立即用力擦拭傷口"], "ans": 0, "exp": "「沖」為以流動清水沖洗傷處，持續降溫，是燒燙傷急救之第一步驟。"}, {"cat": "D", "q": "中暑（熱衰竭／熱中暑）之急救原則，下列何者正確？", "opts": ["移至陰涼處、脫去多餘衣物、設法降溫並補充水分，嚴重者盡速送醫", "繼續留在高溫環境休息即可", "立即給予大量咖啡因飲料", "以厚重衣物包覆保暖"], "ans": 0, "exp": "中暑急救應迅速移至陰涼處降溫、補充水分，情況嚴重應立即送醫。"}, {"cat": "D", "q": "骨折傷患之急救基本原則為何？", "opts": ["固定傷肢，避免任意移動患部，必要時以夾板固定後送醫", "立即嘗試復位骨骼", "強行活動患肢確認傷勢", "忽略傷勢繼續工作"], "ans": 0, "exp": "骨折急救應以固定為原則，避免移動患部造成二次傷害，並儘速送醫處理。"}, {"cat": "D", "q": "休克患者急救時，在無禁忌狀況下，建議採取之姿勢為何？", "opts": ["平躺並將下肢抬高", "採坐姿並前傾", "趴臥姿勢", "無須調整姿勢"], "ans": 0, "exp": "休克患者於無禁忌情形下，宜採平躺並抬高下肢，以促進血液回流。"}, {"cat": "D", "q": "哈姆立克法（腹戳法）主要適用於下列何種情況？", "opts": ["意識清醒且因異物哽塞導致無法呼吸、咳嗽或說話之患者", "患者已完全失去意識", "患者僅是輕微咳嗽仍可正常說話", "患者為骨折傷患"], "ans": 0, "exp": "哈姆立克法適用於意識清醒、因異物梗塞而無法呼吸或發聲之患者。"}, {"cat": "D", "q": "化學灼傷之急救處理原則，下列何者正確？", "opts": ["立即以大量清水沖洗患部至少15至20分鐘", "直接以乾布擦拭患部", "塗抹油脂中和化學物質", "無須處理直接送醫"], "ans": 0, "exp": "化學灼傷應立即以大量清水持續沖洗患部，以稀釋並移除殘留化學物質。"}, {"cat": "D", "q": "事業單位訂定緊急應變計畫，應包含之基本要素為何？", "opts": ["危害辨識、通報程序、疏散撤離程序、救援與急救、演練與檢討", "僅需準備滅火器", "僅需張貼逃生地圖", "無須訂定書面計畫"], "ans": 0, "exp": "完整之緊急應變計畫應涵蓋危害辨識、通報、疏散、救援急救及定期演練檢討等要素。"}, {"cat": "D", "q": "事業單位發生火災時，第一時間應如何處置？", "opts": ["立即通報、啟動警報，並依疏散計畫撤離，視情況滅火", "先確認財物損失再通報", "等候主管指示後才可行動", "自行判斷是否通報，無須遵循既定程序"], "ans": 0, "exp": "發生火災應立即通報並啟動警報，依既定疏散計畫撤離，於安全前提下可嘗試初期滅火。"}, {"cat": "D", "q": "滅火器使用口訣「拉瞄壓掃」中，「瞄」係指下列何者？", "opts": ["將噴嘴瞄準火源根部", "瞄準逃生方向", "瞄準滅火器壓力表", "瞄準其他人員位置"], "ans": 0, "exp": "「瞄」是指使用滅火器時將噴嘴對準火源根部，以達到有效滅火之效果。"}, {"cat": "D", "q": "事業單位緊急應變演練，一般建議之最低頻率為何？", "opts": ["至少每年一次（依風險程度可自訂更高頻率）", "僅須辦理一次，終身有效", "無須定期演練", "每5年一次"], "ans": 0, "exp": "緊急應變演練應定期辦理，一般建議至少每年一次，高風險場所應提高演練頻率。"}, {"cat": "D", "q": "發生化學品吸入中毒事件時，急救之基本原則為何？", "opts": ["迅速脫離污染源，移至空氣新鮮處，必要時施行心肺復甦並儘速就醫", "留在原地觀察即可", "立即催吐處理", "僅需通風即可，無須送醫"], "ans": 0, "exp": "應立即使患者脫離污染環境，視情況施行急救並儘速就醫，避免延誤治療時機。"}, {"cat": "D", "q": "觸電（感電）患者之急救，最優先應確認之事項為何？", "opts": ["電源是否已切斷，現場是否安全", "患者血型", "患者體重", "患者過去病史"], "ans": 0, "exp": "感電急救前必須先確認電源已切斷、現場安全，避免施救者本身遭受感電傷害。"}, {"cat": "D", "q": "現場急救人員於等候救護車到達期間，最重要之任務為何？", "opts": ["維持患者呼吸道暢通並持續觀察生命徵象", "立即讓患者進食補充體力", "要求患者自行起身走動", "忽略患者狀況，僅原地等待"], "ans": 0, "exp": "等候救護車期間應持續維持呼吸道暢通並密切觀察意識、呼吸、循環等生命徵象變化。"}, {"cat": "D", "q": "事業單位發生緊急事故通報時，通報內容應包含下列何者？", "opts": ["事故地點、傷患人數與狀況、事故類型、聯絡人與電話等", "僅需說明事故發生", "僅需通報時間", "無須提供任何細節"], "ans": 0, "exp": "完整之通報內容應涵蓋地點、傷患狀況、事故類型及聯絡方式，以利救援單位掌握狀況。"}, {"cat": "D", "q": "「119」與「110」報案專線之主要差異為何？", "opts": ["119為消防救護報案專線，110為警察報案專線", "兩者功能完全相同", "119僅限火災使用，不含救護", "110可派遣救護車到院治療"], "ans": 0, "exp": "119為消防及緊急醫療救護報案專線，110則為警察報案專線，用途不同。"}, {"cat": "D", "q": "對於昏迷但仍有自主呼吸之傷患，等待救援期間建議採取下列何種姿勢？", "opts": ["復甦姿勢（側臥復甦姿勢）", "平躺且頭部墊高", "俯臥姿勢", "坐姿"], "ans": 0, "exp": "有呼吸但意識不清之傷患，宜採側臥復甦姿勢，以防止嘔吐物或分泌物阻塞呼吸道。"}, {"cat": "D", "q": "事業單位急救箱應定期檢查，主要目的為何？", "opts": ["確保物品未過期、數量充足、功能正常", "僅為應付勞動檢查", "增加採購成本", "無實質必要性"], "ans": 0, "exp": "定期檢查急救箱可確保藥品器材未過期且數量充足，於緊急時能發揮應有效用。"}, {"cat": "D", "q": "職場急救人員之主要任務為何？", "opts": ["在專業醫療人員到達前，提供初步救護，穩定傷患狀況", "取代醫師進行診斷治療", "僅負責填寫報告", "無須具備任何急救知識"], "ans": 0, "exp": "職場急救人員之角色在於提供現場初步救護，穩定傷患狀況，爭取送醫黃金時間。"}, {"cat": "D", "q": "緊急應變小組完成演練後，應接續辦理之工作為何？", "opts": ["檢討與修正應變計畫，找出缺失並改善", "演練結束即可，無須任何後續動作", "僅需存檔紀錄，不必檢討", "將責任歸咎於個別人員即可"], "ans": 0, "exp": "演練後應確實檢討執行過程之缺失，並據以修正應變計畫，達到持續改善之目的。"}];
+QUESTIONS.forEach((q,i)=>q.idx=i);
+
+let currentSet = [];
+let currentPos = 0;
+let score = 0;
+let answered = false;
+let wrongList = [];
+let userAnswers = [];
+
+function switchView(view){
+  document.getElementById('homeArea').style.display = view==='home' ? 'block':'none';
+  document.getElementById('quizArea').style.display = view==='quiz' ? 'block':'none';
+  document.getElementById('resultArea').style.display = view==='result' ? 'block':'none';
+  document.getElementById('browseArea').style.display = view==='browse' ? 'block':'none';
+  document.querySelectorAll('#topNav button').forEach(b=>b.classList.remove('active'));
+  if(view==='browse') document.querySelector('#topNav button[data-view="browse"]').classList.add('active');
+  if(view==='home') document.querySelector('#topNav button[data-view="home"]').classList.add('active');
+  if(view==='browse' && document.getElementById('browseList').childElementCount===0) renderBrowse('ALL');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+document.getElementById('topNav').addEventListener('click', e=>{
+  const btn = e.target.closest('button[data-view]');
+  if(!btn) return;
+  const v = btn.dataset.view;
+  if(v==='home') backToHome();
+  if(v==='browse') switchView('browse');
+});
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+function startExam(){
+  const byCat = {A:[],B:[],C:[],D:[]};
+  QUESTIONS.forEach(q=>byCat[q.cat].push(q.idx));
+  let picked = [];
+  Object.keys(byCat).forEach(c=>{
+    picked = picked.concat(shuffle(byCat[c]).slice(0,6));
+  });
+  picked = shuffle(picked).slice(0,25);
+  launchQuiz(picked);
+}
+
+function startCategory(cat){
+  let idxs;
+  if(cat==='ALL'){
+    idxs = shuffle(QUESTIONS.map(q=>q.idx));
+  } else {
+    idxs = shuffle(QUESTIONS.filter(q=>q.cat===cat).map(q=>q.idx));
+  }
+  launchQuiz(idxs);
+}
+
+function launchQuiz(idxs){
+  currentSet = idxs;
+  currentPos = 0;
+  score = 0;
+  wrongList = [];
+  userAnswers = new Array(idxs.length).fill(null);
+  switchView('quiz');
+  renderQuestion();
+}
+
+function renderQuestion(){
+  answered = false;
+  const qi = currentSet[currentPos];
+  const q = QUESTIONS[qi];
+  document.getElementById('catBadge').textContent = q.cat + '．' + CAT_NAMES[q.cat];
+  document.getElementById('qtext').textContent = (currentPos+1)+'. '+q.q;
+  const pct = Math.round((currentPos)/currentSet.length*100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('progressTxt').textContent = (currentPos+1)+' / '+currentSet.length;
+  document.getElementById('scoreLive').textContent = '目前答對 '+score+' 題';
+  document.getElementById('nextBtn').style.display = 'none';
+  const explain = document.getElementById('explain');
+  explain.classList.remove('show');
+  explain.innerHTML = '';
+
+  const optWrap = document.getElementById('options');
+  optWrap.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  q.opts.forEach((opt,i)=>{
+    const div = document.createElement('div');
+    div.className='option';
+    div.innerHTML = '<span class="tag">'+letters[i]+'</span><span>'+opt+'</span>';
+    div.onclick = ()=>selectOption(i);
+    optWrap.appendChild(div);
+  });
+}
+
+function selectOption(i){
+  if(answered) return;
+  answered = true;
+  const qi = currentSet[currentPos];
+  const q = QUESTIONS[qi];
+  userAnswers[currentPos] = i;
+  const opts = document.querySelectorAll('#options .option');
+  opts.forEach((el,idx)=>{
+    el.classList.add('disabled');
+    if(idx===q.ans) el.classList.add('correct');
+    else if(idx===i) el.classList.add('wrong');
+  });
+  const correct = (i===q.ans);
+  if(correct){ score++; }
+  else { wrongList.push(qi); }
+  document.getElementById('scoreLive').textContent = '目前答對 '+score+' 題';
+  const explain = document.getElementById('explain');
+  explain.innerHTML = '<b>'+(correct?'✓ 答對了！':'✗ 答錯了，正確答案為 '+['A','B','C','D'][q.ans])+'</b><br>'+q.exp;
+  explain.classList.add('show');
+  document.getElementById('nextBtn').style.display = 'inline-block';
+  document.getElementById('nextBtn').textContent = (currentPos===currentSet.length-1) ? '查看結果 →' : '下一題 →';
+}
+
+function nextQuestion(){
+  if(currentPos < currentSet.length-1){
+    currentPos++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult(){
+  switchView('result');
+  const total = currentSet.length;
+  const pct100 = Math.round(score/total*100);
+  document.getElementById('resultScore').innerHTML = score+'<span style="font-size:28px;color:var(--muted);"> / '+total+'</span>';
+  const passLine = document.getElementById('resultPass');
+  const passThreshold = Math.ceil(total*0.6);
+  if(score >= passThreshold){
+    passLine.innerHTML = '<span class="pass">達合格標準（換算約 '+pct100+' 分，60分為合格線）</span>';
+  } else {
+    passLine.innerHTML = '<span class="fail">尚未達合格標準（換算約 '+pct100+' 分，60分為合格線），建議加強複習後再測驗一次</span>';
+  }
+
+  const byCat = {A:{c:0,t:0},B:{c:0,t:0},C:{c:0,t:0},D:{c:0,t:0}};
+  currentSet.forEach((qi,pos)=>{
+    const q = QUESTIONS[qi];
+    byCat[q.cat].t++;
+    if(userAnswers[pos]===q.ans) byCat[q.cat].c++;
+  });
+  const bd = document.getElementById('catBreakdown');
+  bd.innerHTML='';
+  Object.keys(byCat).forEach(cat=>{
+    const d = byCat[cat];
+    if(d.t===0) return;
+    const p = Math.round(d.c/d.t*100);
+    const div = document.createElement('div');
+    div.className='cbi';
+    div.innerHTML = '<div class="name">'+cat+'．'+CAT_NAMES[cat]+'</div>'+
+      '<div class="bar-track"><div class="bar-fill" style="width:'+p+'%;"></div></div>'+
+      '<div class="num">'+d.c+' / '+d.t+'</div>';
+    bd.appendChild(div);
+  });
+
+  const rl = document.getElementById('reviewList');
+  rl.innerHTML='';
+  if(wrongList.length===0){
+    rl.innerHTML = '<div class="review-item">🎉 全部答對，沒有錯題！</div>';
+  } else {
+    wrongList.forEach(qi=>{
+      const q = QUESTIONS[qi];
+      const pos = currentSet.indexOf(qi);
+      const yourAns = userAnswers[pos];
+      const letters=['A','B','C','D'];
+      const div = document.createElement('div');
+      div.className='review-item';
+      div.innerHTML = '<div class="qtext">['+q.cat+'] '+q.q+'</div>'+
+        '<div class="line">你的答案：<span class="wrongtag">'+letters[yourAns]+'．'+q.opts[yourAns]+'</span></div>'+
+        '<div class="line">正確答案：<span class="righttag">'+letters[q.ans]+'．'+q.opts[q.ans]+'</span></div>'+
+        '<div class="line" style="margin-top:6px;"><b>解析：</b>'+q.exp+'</div>';
+      rl.appendChild(div);
+    });
+  }
+}
+
+function backToHome(){
+  switchView('home');
+}
+
+function renderBrowse(cat){
+  document.querySelectorAll('#browseFilter .chip').forEach(c=>c.classList.toggle('active', c.dataset.cat===cat));
+  const list = cat==='ALL' ? QUESTIONS : QUESTIONS.filter(q=>q.cat===cat);
+  const wrap = document.getElementById('browseList');
+  wrap.innerHTML='';
+  const letters=['A','B','C','D'];
+  list.forEach(q=>{
+    const div = document.createElement('div');
+    div.className='browse-item';
+    let optsHtml = q.opts.map((o,i)=>'<li'+(i===q.ans?' class="ans"':'')+'>'+letters[i]+'．'+o+(i===q.ans?'　✓ 正確答案':'')+'</li>').join('');
+    div.innerHTML = '<div class="idx">'+q.cat+'．'+CAT_NAMES[q.cat]+' ／ 第 '+(q.idx+1)+' 題</div>'+
+      '<div class="qtext">'+q.q+'</div>'+
+      '<ul>'+optsHtml+'</ul>'+
+      '<div class="exp"><b>詳解：</b>'+q.exp+'</div>';
+    wrap.appendChild(div);
+  });
+}
+
+document.getElementById('browseFilter').addEventListener('click', e=>{
+  const chip = e.target.closest('.chip');
+  if(!chip) return;
+  renderBrowse(chip.dataset.cat);
+});
+</script>
+</body>
+</html>
